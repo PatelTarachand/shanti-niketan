@@ -301,7 +301,6 @@
                 <h3 class="text-dark mb-4">Explore More About Us</h3>
                 <div class="d-flex flex-wrap justify-content-center gap-3">
                     <a href="{{ route('about.principal') }}" class="btn btn-dark">Principal's Message</a>
-                    <a href="{{ route('about.infrastructure') }}" class="btn btn-outline-dark">Infrastructure</a>
                     <a href="{{ route('about.accreditation') }}" class="btn btn-outline-dark">Accreditation</a>
                     <a href="{{ route('faculty.index') }}" class="btn btn-outline-dark">Our Faculty</a>
                 </div>

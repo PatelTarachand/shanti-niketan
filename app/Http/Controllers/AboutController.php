@@ -23,14 +23,6 @@ class AboutController extends Controller
     }
 
     /**
-     * Display the infrastructure page.
-     */
-    public function infrastructure()
-    {
-        return view('about.infrastructure');
-    }
-
-    /**
      * Display the accreditation page.
      */
     public function accreditation()

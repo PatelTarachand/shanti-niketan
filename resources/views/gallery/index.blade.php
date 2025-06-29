@@ -47,20 +47,36 @@
         <div class="row align-items-center">
             <div class="col-md-6">
                 <div class="filter-buttons">
-                    <button class="btn btn-warning active" data-filter="all">All Items</button>
+                    <button class="btn btn-warning active" data-filter="all">
+                        <i class="fas fa-th me-1"></i>All Items
+                        @if(isset($gallery))
+                            ({{ $gallery->flatten()->count() }})
+                        @endif
+                    </button>
                     @foreach($categories as $category)
-                        <button class="btn btn-outline-warning" data-filter="{{ $category }}">{{ ucfirst($category) }}</button>
+                        <button class="btn btn-outline-warning" data-filter="{{ $category }}">
+                            <i class="fas fa-tag me-1"></i>{{ ucfirst($category) }}
+                            @if(isset($gallery[$category]))
+                                ({{ $gallery[$category]->count() }})
+                            @endif
+                        </button>
                     @endforeach
                 </div>
             </div>
-            <div class="col-md-6 text-end">
-                <div class="view-toggle">
-                    <button class="btn btn-outline-primary btn-sm active" data-view="grid">
-                        <i class="fas fa-th"></i> Grid
-                    </button>
-                    <button class="btn btn-outline-primary btn-sm" data-view="list">
-                        <i class="fas fa-list"></i> List
-                    </button>
+            <div class="col-md-6">
+                <div class="d-flex justify-content-end align-items-center gap-3">
+                    <div class="search-box">
+                        <input type="text" class="form-control form-control-sm" id="gallerySearch"
+                               placeholder="Search gallery..." style="width: 200px;">
+                    </div>
+                    <div class="view-toggle">
+                        <button class="btn btn-outline-primary btn-sm active" data-view="grid">
+                            <i class="fas fa-th"></i> Grid
+                        </button>
+                        <button class="btn btn-outline-primary btn-sm" data-view="list">
+                            <i class="fas fa-list"></i> List
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -262,6 +278,20 @@
     transform: scale(1.05);
 }
 
+.gallery-item {
+    transition: all 0.3s ease;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+}
+
+.gallery-item.filtering {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
 .gallery-overlay {
     position: absolute;
     top: 0;
@@ -338,65 +368,212 @@
 
 @push('scripts')
 <script>
-$(document).ready(function() {
+document.addEventListener('DOMContentLoaded', function() {
     // Filter functionality
-    $('.filter-buttons .btn').click(function() {
-        $('.filter-buttons .btn').removeClass('active btn-warning').addClass('btn-outline-warning');
-        $(this).removeClass('btn-outline-warning').addClass('active btn-warning');
+    const filterButtons = document.querySelectorAll('.filter-buttons .btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const gallerySections = document.querySelectorAll('section[data-category]');
 
-        const filter = $(this).data('filter');
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Update active button
+            filterButtons.forEach(btn => {
+                btn.classList.remove('active', 'btn-warning');
+                btn.classList.add('btn-outline-warning');
+            });
+            this.classList.remove('btn-outline-warning');
+            this.classList.add('active', 'btn-warning');
 
-        if (filter === 'all') {
-            $('.gallery-item').show();
-        } else {
-            $('.gallery-item').hide();
-            $(`.gallery-item[data-category="${filter}"]`).show();
-        }
+            const filter = this.getAttribute('data-filter');
+
+            if (filter === 'all') {
+                // Show all sections and items with smooth animation
+                gallerySections.forEach(section => {
+                    section.style.display = 'block';
+                    section.style.opacity = '1';
+                });
+                galleryItems.forEach(item => {
+                    item.style.display = 'block';
+                    item.style.opacity = '1';
+                    item.style.transform = 'scale(1)';
+                });
+            } else {
+                // Hide all sections first
+                gallerySections.forEach(section => {
+                    const sectionCategory = section.getAttribute('data-category');
+                    if (sectionCategory === filter) {
+                        section.style.display = 'block';
+                        section.style.opacity = '1';
+                    } else {
+                        section.style.display = 'none';
+                        section.style.opacity = '0';
+                    }
+                });
+
+                // Show/hide individual items with animation
+                galleryItems.forEach(item => {
+                    const itemCategory = item.getAttribute('data-category');
+                    if (itemCategory === filter) {
+                        item.style.display = 'block';
+                        item.style.opacity = '1';
+                        item.style.transform = 'scale(1)';
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'scale(0.8)';
+                        setTimeout(() => {
+                            if (item.style.opacity === '0') {
+                                item.style.display = 'none';
+                            }
+                        }, 300);
+                    }
+                });
+            }
+        });
     });
 
-    // View toggle
-    $('.view-toggle .btn').click(function() {
-        $('.view-toggle .btn').removeClass('active');
-        $(this).addClass('active');
+    // Update filter counts
+    function updateFilterCounts() {
+        const allButton = document.querySelector('[data-filter="all"]');
+        const visibleItems = document.querySelectorAll('.gallery-item[style*="display: block"], .gallery-item:not([style*="display: none"])');
 
-        const view = $(this).data('view');
+        // Update All button count
+        const allText = allButton.textContent.replace(/\(\d+\)/, '');
+        allButton.innerHTML = `<i class="fas fa-th me-1"></i>${allText.trim()} (${visibleItems.length})`;
 
-        if (view === 'list') {
-            $('.gallery-item').removeClass('col-lg-4 col-md-6').addClass('col-12');
-            $('.gallery-card').addClass('mb-3');
-        } else {
-            $('.gallery-item').removeClass('col-12').addClass('col-lg-4 col-md-6');
-            $('.gallery-card').removeClass('mb-3');
-        }
+        // Update category button counts
+        filterButtons.forEach(button => {
+            const filter = button.getAttribute('data-filter');
+            if (filter !== 'all') {
+                const categoryItems = document.querySelectorAll(`[data-category="${filter}"][style*="display: block"], [data-category="${filter}"]:not([style*="display: none"])`);
+                const buttonText = button.textContent.replace(/\(\d+\)/, '').trim();
+                button.innerHTML = `<i class="fas fa-tag me-1"></i>${buttonText} (${categoryItems.length})`;
+            }
+        });
+    }
+
+    // View toggle functionality
+    const viewToggleButtons = document.querySelectorAll('.view-toggle .btn');
+
+    viewToggleButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Update active button
+            viewToggleButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+
+            const view = this.getAttribute('data-view');
+
+            if (view === 'list') {
+                galleryItems.forEach(item => {
+                    item.classList.remove('col-lg-4', 'col-md-6');
+                    item.classList.add('col-12');
+                    const card = item.querySelector('.gallery-card');
+                    if (card) card.classList.add('mb-3');
+                });
+            } else {
+                galleryItems.forEach(item => {
+                    item.classList.remove('col-12');
+                    item.classList.add('col-lg-4', 'col-md-6');
+                    const card = item.querySelector('.gallery-card');
+                    if (card) card.classList.remove('mb-3');
+                });
+            }
+        });
     });
 
-    // Image modal
-    $('[data-bs-target="#imageModal"]').click(function() {
-        const image = $(this).data('image');
-        const title = $(this).data('title');
-        const description = $(this).data('description');
+    // Search functionality
+    const searchInput = document.getElementById('gallerySearch');
+    if (searchInput) {
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase().trim();
 
-        $('#imageModalImage').attr('src', image);
-        $('#imageModalTitle').text(title);
-        $('#imageModalDescription').text(description || '');
+            galleryItems.forEach(item => {
+                const title = item.querySelector('.card-title')?.textContent.toLowerCase() || '';
+                const description = item.querySelector('.card-text')?.textContent.toLowerCase() || '';
+                const category = item.getAttribute('data-category')?.toLowerCase() || '';
+
+                const matches = title.includes(searchTerm) ||
+                               description.includes(searchTerm) ||
+                               category.includes(searchTerm);
+
+                if (searchTerm === '' || matches) {
+                    item.style.display = 'block';
+                    item.style.opacity = '1';
+                    item.style.transform = 'scale(1)';
+                } else {
+                    item.style.opacity = '0';
+                    item.style.transform = 'scale(0.8)';
+                    setTimeout(() => {
+                        if (item.style.opacity === '0') {
+                            item.style.display = 'none';
+                        }
+                    }, 300);
+                }
+            });
+
+            // Reset filter buttons when searching
+            if (searchTerm !== '') {
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('active', 'btn-warning');
+                    btn.classList.add('btn-outline-warning');
+                });
+                document.querySelector('[data-filter="all"]').classList.add('active', 'btn-warning');
+                document.querySelector('[data-filter="all"]').classList.remove('btn-outline-warning');
+            }
+        });
+    }
+
+    // Image modal functionality
+    const imageModalTriggers = document.querySelectorAll('[data-bs-target="#imageModal"]');
+
+    imageModalTriggers.forEach(trigger => {
+        trigger.addEventListener('click', function() {
+            const image = this.getAttribute('data-image');
+            const title = this.getAttribute('data-title');
+            const description = this.getAttribute('data-description');
+
+            const modalImage = document.getElementById('imageModalImage');
+            const modalTitle = document.getElementById('imageModalTitle');
+            const modalDescription = document.getElementById('imageModalDescription');
+
+            if (modalImage) modalImage.src = image;
+            if (modalTitle) modalTitle.textContent = title;
+            if (modalDescription) modalDescription.textContent = description || '';
+        });
     });
 
-    // Video modal
-    $('[data-bs-target="#videoModal"]').click(function() {
-        const video = $(this).data('video');
-        const title = $(this).data('title');
-        const description = $(this).data('description');
+    // Video modal functionality
+    const videoModalTriggers = document.querySelectorAll('[data-bs-target="#videoModal"]');
 
-        $('#videoModalPlayer source').attr('src', video);
-        $('#videoModalPlayer')[0].load();
-        $('#videoModalTitle').text(title);
-        $('#videoModalDescription').text(description || '');
-    });
+    videoModalTriggers.forEach(trigger => {
+        trigger.addEventListener('click', function() {
+            const video = this.getAttribute('data-video');
+            const title = this.getAttribute('data-title');
+            const description = this.getAttribute('data-description');
 
-    // Pause video when modal closes
-    $('#videoModal').on('hidden.bs.modal', function() {
-        $('#videoModalPlayer')[0].pause();
+            const videoPlayer = document.getElementById('videoModalPlayer');
+            const videoSource = videoPlayer ? videoPlayer.querySelector('source') : null;
+            const videoTitle = document.getElementById('videoModalTitle');
+            const videoDescription = document.getElementById('videoModalDescription');
+
+            if (videoSource) {
+                videoSource.src = video;
+                videoPlayer.load();
+            }
+            if (videoTitle) videoTitle.textContent = title;
+            if (videoDescription) videoDescription.textContent = description || '';
+        });
     });
 });
+
+// Pause video when modal closes
+const videoModal = document.getElementById('videoModal');
+if (videoModal) {
+    videoModal.addEventListener('hidden.bs.modal', function() {
+        const videoPlayer = document.getElementById('videoModalPlayer');
+        if (videoPlayer) {
+            videoPlayer.pause();
+        }
+    });
+}
 </script>
 @endpush

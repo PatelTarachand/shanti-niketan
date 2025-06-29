@@ -34,7 +34,6 @@ Route::get('/system-info', function() {
 Route::prefix('about')->name('about.')->group(function () {
     Route::get('/', [AboutController::class, 'index'])->name('index');
     Route::get('/principal-message', [AboutController::class, 'principal'])->name('principal');
-    Route::get('/infrastructure', [AboutController::class, 'infrastructure'])->name('infrastructure');
     Route::get('/accreditation', [AboutController::class, 'accreditation'])->name('accreditation');
 });
 

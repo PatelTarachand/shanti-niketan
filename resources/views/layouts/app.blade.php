@@ -908,7 +908,6 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('about.index') }}"><i class="fas fa-university me-2"></i>College History</a></li>
                             <li><a class="dropdown-item" href="{{ route('about.principal') }}"><i class="fas fa-user-tie me-2"></i>Principal's Message</a></li>
-                            <li><a class="dropdown-item" href="{{ route('about.infrastructure') }}"><i class="fas fa-building me-2"></i>Infrastructure</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
