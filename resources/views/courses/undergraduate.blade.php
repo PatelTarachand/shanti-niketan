@@ -41,7 +41,7 @@
                 <p class="lead">Comprehensive undergraduate education with industry-relevant curriculum</p>
             </div>
         </div>
-        
+
         <div class="row">
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card h-100">
@@ -59,7 +59,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card h-100">
                     <div class="card-header text-center bg-warning">
@@ -76,7 +76,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card h-100">
                     <div class="card-header text-center bg-warning">
@@ -106,7 +106,7 @@
                 <h2 class="section-title text-center mb-5">B.Tech Engineering Programs</h2>
             </div>
         </div>
-        
+
         <div class="row">
             <div class="col-lg-6 mb-4">
                 <div class="card">
@@ -115,7 +115,7 @@
                             <i class="fas fa-laptop-code fa-3x text-warning me-3"></i>
                             <div>
                                 <h5>B.Tech Computer Science & Engineering</h5>
-                                <p class="text-muted mb-0">4 Years | 120 Seats</p>
+                                <p class="text-muted mb-0">4 Years</p>
                             </div>
                         </div>
                         <p>Comprehensive program covering programming, software development, AI, machine learning, and emerging technologies.</p>
@@ -132,7 +132,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-lg-6 mb-4">
                 <div class="card">
                     <div class="card-body">
@@ -140,7 +140,7 @@
                             <i class="fas fa-cogs fa-3x text-warning me-3"></i>
                             <div>
                                 <h5>B.Tech Mechanical Engineering</h5>
-                                <p class="text-muted mb-0">4 Years | 60 Seats</p>
+                                <p class="text-muted mb-0">4 Years</p>
                             </div>
                         </div>
                         <p>Focus on design, manufacturing, thermal systems, and mechanical automation with hands-on experience.</p>
@@ -157,7 +157,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-lg-6 mb-4">
                 <div class="card">
                     <div class="card-body">
@@ -165,7 +165,7 @@
                             <i class="fas fa-building fa-3x text-warning me-3"></i>
                             <div>
                                 <h5>B.Tech Civil Engineering</h5>
-                                <p class="text-muted mb-0">4 Years | 60 Seats</p>
+                                <p class="text-muted mb-0">4 Years</p>
                             </div>
                         </div>
                         <p>Infrastructure development, construction technology, environmental engineering, and urban planning.</p>
@@ -182,7 +182,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-lg-6 mb-4">
                 <div class="card">
                     <div class="card-body">
@@ -190,7 +190,7 @@
                             <i class="fas fa-bolt fa-3x text-warning me-3"></i>
                             <div>
                                 <h5>B.Tech Electrical Engineering</h5>
-                                <p class="text-muted mb-0">4 Years | 60 Seats</p>
+                                <p class="text-muted mb-0">4 Years</p>
                             </div>
                         </div>
                         <p>Power systems, electronics, control systems, renewable energy, and electrical automation.</p>
@@ -219,7 +219,7 @@
                 <h2 class="section-title text-center mb-5">Management & Commerce Programs</h2>
             </div>
         </div>
-        
+
         <div class="row">
             <div class="col-lg-6 mb-4">
                 <div class="card">
@@ -228,7 +228,7 @@
                             <i class="fas fa-chart-line fa-3x text-warning me-3"></i>
                             <div>
                                 <h5>Bachelor of Business Administration (BBA)</h5>
-                                <p class="text-muted mb-0">3 Years | 60 Seats</p>
+                                <p class="text-muted mb-0">3 Years</p>
                             </div>
                         </div>
                         <p>Comprehensive business management program with specializations in various domains.</p>
@@ -244,7 +244,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-lg-6 mb-4">
                 <div class="card">
                     <div class="card-body">
@@ -252,7 +252,7 @@
                             <i class="fas fa-calculator fa-3x text-warning me-3"></i>
                             <div>
                                 <h5>Bachelor of Commerce (B.Com)</h5>
-                                <p class="text-muted mb-0">3 Years | 120 Seats</p>
+                                <p class="text-muted mb-0">3 Years</p>
                             </div>
                         </div>
                         <p>Comprehensive commerce education with focus on accounting, finance, taxation, and business law.</p>
@@ -282,7 +282,7 @@
                 <p class="lead">Eligibility criteria for undergraduate programs</p>
             </div>
         </div>
-        
+
         <div class="row">
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card text-center h-100">
@@ -298,7 +298,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card text-center h-100">
                     <div class="card-body">
@@ -313,7 +313,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card text-center h-100">
                     <div class="card-body">

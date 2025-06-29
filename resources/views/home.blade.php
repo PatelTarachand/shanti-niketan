@@ -231,36 +231,8 @@
             <div class="col-12 text-center mb-5">
                 <h2 class="section-title">Our Courses</h2>
                 <p class="lead">Comprehensive programs designed to meet industry demands</p>
-                @if(isset($courses) && $courses->count() > 0)
-                    <div class="course-stats mt-4">
-                        <div class="row justify-content-center">
-                            <div class="col-md-3 col-6 mb-3">
-                                <div class="stat-item">
-                                    <h4 class="text-primary mb-1">{{ $courses->flatten()->count() }}</h4>
-                                    <small class="text-muted">Total Courses</small>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-6 mb-3">
-                                <div class="stat-item">
-                                    <h4 class="text-success mb-1">{{ $courses->count() }}</h4>
-                                    <small class="text-muted">Departments</small>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-6 mb-3">
-                                <div class="stat-item">
-                                    <h4 class="text-warning mb-1">{{ $courses->flatten()->sum('total_seats') }}</h4>
-                                    <small class="text-muted">Total Seats</small>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-6 mb-3">
-                                <div class="stat-item">
-                                    <h4 class="text-info mb-1">{{ $courses->flatten()->sum('available_seats') }}</h4>
-                                    <small class="text-muted">Available Seats</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endif
+
+
             </div>
         </div>
 

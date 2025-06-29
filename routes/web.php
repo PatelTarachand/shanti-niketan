@@ -177,4 +177,14 @@ Route::prefix('admin')->name('admin.')->group(function () {
     });
 });
 
+// Sitemap Routes
+Route::get('/sitemap', [App\Http\Controllers\SitemapController::class, 'html'])->name('sitemap.html');
+Route::get('/sitemap.xml', [App\Http\Controllers\SitemapController::class, 'index'])->name('sitemap.index');
+Route::get('/sitemap-pages.xml', [App\Http\Controllers\SitemapController::class, 'pages'])->name('sitemap.pages');
+Route::get('/sitemap-courses.xml', [App\Http\Controllers\SitemapController::class, 'courses'])->name('sitemap.courses');
+Route::get('/sitemap-notices.xml', [App\Http\Controllers\SitemapController::class, 'notices'])->name('sitemap.notices');
+Route::get('/sitemap-faculty.xml', [App\Http\Controllers\SitemapController::class, 'faculty'])->name('sitemap.faculty');
+Route::get('/sitemap-gallery.xml', [App\Http\Controllers\SitemapController::class, 'gallery'])->name('sitemap.gallery');
+Route::get('/robots.txt', [App\Http\Controllers\SitemapController::class, 'robots'])->name('robots');
+
 

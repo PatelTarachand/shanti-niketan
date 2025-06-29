@@ -10,34 +10,8 @@
             <div class="col-lg-8">
                 <h1 class="display-4 fw-bold mb-3">Our Courses</h1>
                 <p class="lead mb-4">Discover world-class education programs designed to shape your future and unlock your potential.</p>
-                <div class="hero-stats">
-                    <div class="row">
-                        <div class="col-md-3 col-6 mb-3">
-                            <div class="stat-item">
-                                <h3 class="fw-bold">{{ $courses->flatten()->count() }}</h3>
-                                <p class="mb-0">Courses</p>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-6 mb-3">
-                            <div class="stat-item">
-                                <h3 class="fw-bold">{{ $departments->count() }}</h3>
-                                <p class="mb-0">Departments</p>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-6 mb-3">
-                            <div class="stat-item">
-                                <h3 class="fw-bold">{{ $courses->flatten()->sum('total_seats') }}</h3>
-                                <p class="mb-0">Total Seats</p>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-6 mb-3">
-                            <div class="stat-item">
-                                <h3 class="fw-bold">{{ $courses->flatten()->sum('available_seats') }}</h3>
-                                <p class="mb-0">Available</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+
             </div>
             <div class="col-lg-4 text-center">
                 <img src="{{ asset('snc_college.jpeg') }}" alt="Shantineketan College" class="img-fluid rounded shadow">
@@ -96,9 +70,7 @@
                                         <div class="col-6">
                                             <small><i class="fas fa-clock text-warning me-1"></i><strong>Duration:</strong> {{ $course->duration_years }} Years</small>
                                         </div>
-                                        <div class="col-6">
-                                            <small><i class="fas fa-users text-warning me-1"></i><strong>Seats:</strong> {{ $course->total_seats }}</small>
-                                        </div>
+
                                     </div>
                                     <div class="row mt-2">
                                         <div class="col-6">

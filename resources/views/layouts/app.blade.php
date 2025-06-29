@@ -11,6 +11,9 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
 
+    <!-- Sitemap -->
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ route('sitemap.index') }}">
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -913,35 +916,20 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
                             Courses
-                            @if(isset($courseCounts) && $courseCounts['total'] > 0)
-                                <span class="badge bg-light text-dark ms-1 small">{{ $courseCounts['total'] }}</span>
-                            @endif
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('courses.index') }}">
                                 <i class="fas fa-list me-2"></i>All Courses
-                                @if(isset($courseCounts) && $courseCounts['total'] > 0)
-                                    <span class="badge bg-primary ms-auto">{{ $courseCounts['total'] }}</span>
-                                @endif
                             </a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="{{ route('courses.undergraduate') }}">
                                 <i class="fas fa-graduation-cap me-2"></i>Undergraduate Programs
-                                @if(isset($courseCounts) && $courseCounts['undergraduate'] > 0)
-                                    <span class="badge bg-success ms-auto">{{ $courseCounts['undergraduate'] }}</span>
-                                @endif
                             </a></li>
                             <li><a class="dropdown-item" href="{{ route('courses.postgraduate') }}">
                                 <i class="fas fa-user-graduate me-2"></i>Postgraduate Programs
-                                @if(isset($courseCounts) && $courseCounts['postgraduate'] > 0)
-                                    <span class="badge bg-warning text-dark ms-auto">{{ $courseCounts['postgraduate'] }}</span>
-                                @endif
                             </a></li>
                             <li><a class="dropdown-item" href="{{ route('courses.diploma') }}">
                                 <i class="fas fa-certificate me-2"></i>Diploma Programs
-                                @if(isset($courseCounts) && $courseCounts['diploma'] > 0)
-                                    <span class="badge bg-info ms-auto">{{ $courseCounts['diploma'] }}</span>
-                                @endif
                             </a></li>
                         </ul>
                     </li>
@@ -979,6 +967,11 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('contact.index') }}">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('sitemap.html') }}">
+                            <i class="fas fa-sitemap me-2"></i>Sitemap
+                        </a>
                     </li>
                     <li class="nav-item dropdown d-none">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
@@ -1024,6 +1017,7 @@
                         <li><a href="{{ route('courses.index') }}">Courses</a></li>
                         <li><a href="{{ route('admission.apply') }}">Apply Now</a></li>
                         <li><a href="{{ route('faculty.index') }}">Faculty</a></li>
+                        <li><a href="{{ route('sitemap.html') }}">Sitemap</a></li>
                     </ul>
                 </div>
 

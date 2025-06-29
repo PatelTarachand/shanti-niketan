@@ -41,7 +41,7 @@
                 <p class="lead">Advanced education with research focus and industry specialization</p>
             </div>
         </div>
-        
+
         <div class="row">
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card h-100">
@@ -59,7 +59,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card h-100">
                     <div class="card-header text-center bg-warning">
@@ -76,7 +76,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card h-100">
                     <div class="card-header text-center bg-warning">
@@ -106,7 +106,7 @@
                 <p class="lead">Comprehensive business management program for future leaders</p>
             </div>
         </div>
-        
+
         <div class="row">
             <div class="col-lg-6 mb-4">
                 <div class="card">
@@ -123,7 +123,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-lg-6 mb-4">
                 <div class="card">
                     <div class="card-body">
@@ -158,7 +158,7 @@
                 <p class="lead">Advanced engineering education with research focus</p>
             </div>
         </div>
-        
+
         <div class="row">
             <div class="col-lg-6 mb-4">
                 <div class="card">
@@ -167,7 +167,7 @@
                             <i class="fas fa-laptop-code fa-3x text-warning me-3"></i>
                             <div>
                                 <h5>M.Tech Computer Science & Engineering</h5>
-                                <p class="text-muted mb-0">2 Years | 18 Seats</p>
+                                <p class="text-muted mb-0">2 Years</p>
                             </div>
                         </div>
                         <h6 class="text-warning">Specializations:</h6>
@@ -180,7 +180,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-lg-6 mb-4">
                 <div class="card">
                     <div class="card-body">
@@ -214,7 +214,7 @@
                 <p class="lead">Eligibility criteria for postgraduate programs</p>
             </div>
         </div>
-        
+
         <div class="row">
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card text-center h-100">
@@ -230,7 +230,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card text-center h-100">
                     <div class="card-body">
@@ -245,7 +245,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card text-center h-100">
                     <div class="card-body">

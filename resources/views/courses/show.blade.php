@@ -36,10 +36,7 @@
                             <h3 class="text-warning">{{ $course->total_semesters }}</h3>
                             <small>Semesters</small>
                         </div>
-                        <div class="col-6">
-                            <h3 class="text-warning">{{ $course->available_seats }}</h3>
-                            <small>Available Seats</small>
-                        </div>
+
                         <div class="col-6">
                             <h3 class="text-warning">₹{{ number_format($course->fees_per_semester/1000) }}K</h3>
                             <small>Per Semester</small>
@@ -192,16 +189,7 @@
                                 <td><strong>Semesters:</strong></td>
                                 <td>{{ $course->total_semesters }}</td>
                             </tr>
-                            <tr>
-                                <td><strong>Total Seats:</strong></td>
-                                <td>{{ $course->total_seats }}</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Available:</strong></td>
-                                <td class="text-{{ $course->availability_status === 'available' ? 'success' : ($course->availability_status === 'limited' ? 'warning' : 'danger') }}">
-                                    {{ $course->available_seats }}
-                                </td>
-                            </tr>
+
                         </table>
                     </div>
                 </div>

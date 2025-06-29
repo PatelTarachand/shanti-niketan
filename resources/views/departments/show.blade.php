@@ -16,7 +16,7 @@
                         <li class="breadcrumb-item active text-white">{{ $departmentName }}</li>
                     </ol>
                 </nav>
-                
+
                 <div class="d-flex align-items-center mb-4">
                     <div class="department-icon me-4">
                         <i class="fas fa-{{ $departmentName === 'Computer Science' ? 'laptop-code' : ($departmentName === 'Engineering' ? 'cogs' : ($departmentName === 'Management' ? 'briefcase' : ($departmentName === 'Commerce' ? 'chart-line' : 'graduation-cap'))) }} fa-4x text-warning"></i>
@@ -26,7 +26,7 @@
                         <p class="lead mb-0">Department of Excellence</p>
                     </div>
                 </div>
-                
+
                 <div class="department-stats">
                     <div class="row">
                         <div class="col-md-3 col-6 mb-3">
@@ -71,37 +71,37 @@
                     <h2>Our Faculty</h2>
                     <p class="lead">Meet our experienced and dedicated faculty members</p>
                 </div>
-                
+
                 <div class="row">
                     @foreach($faculty as $member)
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="card h-100 faculty-card">
                             <div class="faculty-image-container">
-                                <img src="{{ $member->image ? Storage::url($member->image) : 'https://via.placeholder.com/300x300/FFD700/2C3E50?text=' . urlencode(substr($member->name, 0, 2)) }}" 
-                                     class="card-img-top faculty-image" 
+                                <img src="{{ $member->image ? Storage::url($member->image) : 'https://via.placeholder.com/300x300/FFD700/2C3E50?text=' . urlencode(substr($member->name, 0, 2)) }}"
+                                     class="card-img-top faculty-image"
                                      alt="{{ $member->name }}">
-                                
+
                                 <div class="position-absolute top-0 end-0 m-2">
                                     <span class="badge bg-primary">{{ $member->experience_years }} Years</span>
                                 </div>
                             </div>
-                            
+
                             <div class="card-body">
                                 <h5 class="card-title">{{ $member->name }}</h5>
                                 <h6 class="card-subtitle mb-2 text-warning">{{ $member->designation }}</h6>
-                                
+
                                 <p class="mb-2">
                                     <i class="fas fa-graduation-cap text-warning me-2"></i>
                                     <small>{{ $member->qualification }}</small>
                                 </p>
-                                
+
                                 @if($member->specialization)
                                     <p class="mb-2">
                                         <i class="fas fa-star text-warning me-2"></i>
                                         <small>{{ $member->specialization }}</small>
                                     </p>
                                 @endif
-                                
+
                                 @if($member->email)
                                     <div class="mt-3">
                                         <a href="mailto:{{ $member->email }}" class="btn btn-warning btn-sm">
@@ -116,7 +116,7 @@
                 </div>
             </div>
             @endif
-            
+
             <!-- Courses Section -->
             @if($courses->count() > 0)
             <div class="col-12">
@@ -124,7 +124,7 @@
                     <h2>Our Programs</h2>
                     <p class="lead">Explore the academic programs offered by our department</p>
                 </div>
-                
+
                 <div class="row">
                     @foreach($courses as $course)
                     <div class="col-lg-6 col-md-6 mb-4">
@@ -137,17 +137,15 @@
                                         <p class="text-muted mb-0">{{ $course->code }}</p>
                                     </div>
                                 </div>
-                                
+
                                 <p class="course-description">{{ $course->description }}</p>
-                                
+
                                 <div class="course-details mb-3">
                                     <div class="row">
                                         <div class="col-6">
                                             <small><i class="fas fa-clock text-warning me-1"></i><strong>Duration:</strong> {{ $course->duration_years }} Years</small>
                                         </div>
-                                        <div class="col-6">
-                                            <small><i class="fas fa-users text-warning me-1"></i><strong>Seats:</strong> {{ $course->total_seats }}</small>
-                                        </div>
+
                                     </div>
                                     <div class="row mt-2">
                                         <div class="col-6">
@@ -160,7 +158,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="d-flex justify-content-between align-items-center">
                                     <a href="{{ route('courses.show', $course->id) }}" class="btn btn-outline-primary btn-sm">
                                         <i class="fas fa-info-circle me-1"></i>View Details
@@ -324,20 +322,20 @@
     .hero-section .display-4 {
         font-size: 2.5rem;
     }
-    
+
     .department-icon {
         width: 80px;
         height: 80px;
     }
-    
+
     .department-icon .fa-4x {
         font-size: 2.5rem !important;
     }
-    
+
     .faculty-image-container {
         height: 200px;
     }
-    
+
     .achievement-number {
         font-size: 2rem;
     }
