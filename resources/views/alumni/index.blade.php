@@ -177,9 +177,6 @@
                 <div class="d-flex justify-content-between align-items-center">
                     <h2 class="section-title mb-0">Alumni Directory</h2>
                     <div class="d-flex gap-2">
-                        <a href="{{ route('alumni.mentors') }}" class="btn btn-outline-warning">
-                            <i class="fas fa-chalkboard-teacher me-2"></i>Find Mentors
-                        </a>
                         <a href="{{ route('alumni.testimonials') }}" class="btn btn-outline-success">
                             <i class="fas fa-quote-left me-2"></i>Testimonials
                         </a>

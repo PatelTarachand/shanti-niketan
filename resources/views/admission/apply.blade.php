@@ -38,8 +38,53 @@
         <div class="row">
             <div class="col-lg-8 mx-auto">
                 @if(session('success'))
-                    <div class="alert alert-success">
-                        <i class="fas fa-check-circle me-2"></i>{{ session('success') }}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-check-circle me-3" style="font-size: 2rem;"></i>
+                            <div>
+                                <h5 class="alert-heading mb-1">Application Submitted Successfully!</h5>
+                                <p class="mb-0">{{ session('success') }}</p>
+                            </div>
+                        </div>
+                        @if(session('application_number'))
+                            <div class="application-number-box mt-3 p-3 bg-light rounded">
+                                <div class="row align-items-center">
+                                    <div class="col-md-8">
+                                        <strong class="text-primary">Your Application Number:</strong>
+                                        <span class="fs-4 fw-bold text-success ms-2">{{ session('application_number') }}</span>
+                                    </div>
+                                    <div class="col-md-4 text-md-end">
+                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="copyApplicationNumber()">
+                                            <i class="fas fa-copy me-1"></i>Copy Number
+                                        </button>
+                                    </div>
+                                </div>
+                                <small class="text-muted d-block mt-2">
+                                    <i class="fas fa-info-circle me-1"></i>
+                                    Please save this application number for future reference and tracking.
+                                </small>
+                            </div>
+                        @endif
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+
+                @if(session('error'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <i class="fas fa-exclamation-circle me-2"></i>{{ session('error') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+
+                @if($errors->any())
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <h6><i class="fas fa-exclamation-triangle me-2"></i>Please fix the following errors:</h6>
+                        <ul class="mb-0">
+                            @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endif
 
@@ -173,24 +218,39 @@
                                     <label for="course" class="form-label">Course Applied For *</label>
                                     <select class="form-control @error('course') is-invalid @enderror" id="course" name="course" required>
                                         <option value="">Select Course</option>
-                                        <optgroup label="Engineering (B.Tech)">
-                                            <option value="btech_cse" {{ old('course') == 'btech_cse' ? 'selected' : '' }}>Computer Science & Engineering</option>
-                                            <option value="btech_mechanical" {{ old('course') == 'btech_mechanical' ? 'selected' : '' }}>Mechanical Engineering</option>
-                                            <option value="btech_civil" {{ old('course') == 'btech_civil' ? 'selected' : '' }}>Civil Engineering</option>
-                                            <option value="btech_electrical" {{ old('course') == 'btech_electrical' ? 'selected' : '' }}>Electrical Engineering</option>
-                                        </optgroup>
-                                        <optgroup label="Management">
-                                            <option value="mba" {{ old('course') == 'mba' ? 'selected' : '' }}>MBA</option>
-                                            <option value="bba" {{ old('course') == 'bba' ? 'selected' : '' }}>BBA</option>
-                                        </optgroup>
-                                        <optgroup label="Commerce">
-                                            <option value="bcom" {{ old('course') == 'bcom' ? 'selected' : '' }}>B.Com</option>
-                                            <option value="mcom" {{ old('course') == 'mcom' ? 'selected' : '' }}>M.Com</option>
-                                        </optgroup>
-                                        <optgroup label="Diploma">
-                                            <option value="diploma_cse" {{ old('course') == 'diploma_cse' ? 'selected' : '' }}>Diploma in CSE</option>
-                                            <option value="diploma_mechanical" {{ old('course') == 'diploma_mechanical' ? 'selected' : '' }}>Diploma in Mechanical</option>
-                                        </optgroup>
+                                        @if($courses->count() > 0)
+                                            @php
+                                                $groupedCourses = $courses->groupBy('category');
+                                            @endphp
+                                            @foreach($groupedCourses as $category => $categoryCourses)
+                                                <optgroup label="{{ ucfirst($category) }}">
+                                                    @foreach($categoryCourses as $course)
+                                                        <option value="{{ $course->name }}" {{ old('course') == $course->name ? 'selected' : '' }}>
+                                                            {{ $course->name }}
+                                                            @if($course->duration)
+                                                                ({{ $course->duration }})
+                                                            @endif
+                                                        </option>
+                                                    @endforeach
+                                                </optgroup>
+                                            @endforeach
+                                        @else
+                                            <!-- Fallback options if no courses in database -->
+                                            <optgroup label="Engineering (B.Tech)">
+                                                <option value="B.Tech Computer Science & Engineering" {{ old('course') == 'B.Tech Computer Science & Engineering' ? 'selected' : '' }}>Computer Science & Engineering</option>
+                                                <option value="B.Tech Mechanical Engineering" {{ old('course') == 'B.Tech Mechanical Engineering' ? 'selected' : '' }}>Mechanical Engineering</option>
+                                                <option value="B.Tech Civil Engineering" {{ old('course') == 'B.Tech Civil Engineering' ? 'selected' : '' }}>Civil Engineering</option>
+                                                <option value="B.Tech Electrical Engineering" {{ old('course') == 'B.Tech Electrical Engineering' ? 'selected' : '' }}>Electrical Engineering</option>
+                                            </optgroup>
+                                            <optgroup label="Management">
+                                                <option value="MBA" {{ old('course') == 'MBA' ? 'selected' : '' }}>MBA</option>
+                                                <option value="BBA" {{ old('course') == 'BBA' ? 'selected' : '' }}>BBA</option>
+                                            </optgroup>
+                                            <optgroup label="Commerce">
+                                                <option value="B.Com" {{ old('course') == 'B.Com' ? 'selected' : '' }}>B.Com</option>
+                                                <option value="M.Com" {{ old('course') == 'M.Com' ? 'selected' : '' }}>M.Com</option>
+                                            </optgroup>
+                                        @endif
                                     </select>
                                     @error('course')
                                         <div class="invalid-feedback">{{ $message }}</div>
@@ -299,58 +359,6 @@
                                     <label for="father_occupation" class="form-label">Father's Occupation</label>
                                     <input type="text" class="form-control" id="father_occupation" name="father_occupation" value="{{ old('father_occupation') }}">
                                 </div>
-
-                                <div class="col-md-6 mb-3">
-                                    <label for="annual_income" class="form-label">Annual Family Income</label>
-                                    <select class="form-control" id="annual_income" name="annual_income">
-                                        <option value="">Select Income Range</option>
-                                        <option value="below_1_lakh" {{ old('annual_income') == 'below_1_lakh' ? 'selected' : '' }}>Below ₹1 Lakh</option>
-                                        <option value="1_to_2_lakh" {{ old('annual_income') == '1_to_2_lakh' ? 'selected' : '' }}>₹1-2 Lakh</option>
-                                        <option value="2_to_5_lakh" {{ old('annual_income') == '2_to_5_lakh' ? 'selected' : '' }}>₹2-5 Lakh</option>
-                                        <option value="5_to_10_lakh" {{ old('annual_income') == '5_to_10_lakh' ? 'selected' : '' }}>₹5-10 Lakh</option>
-                                        <option value="above_10_lakh" {{ old('annual_income') == 'above_10_lakh' ? 'selected' : '' }}>Above ₹10 Lakh</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <!-- Document Upload -->
-                            <h5 class="text-warning mb-3 mt-4"><i class="fas fa-file-upload me-2"></i>Document Upload</h5>
-                            <p class="text-muted small">Please upload clear scanned copies of the following documents (PDF/JPG format, max 2MB each):</p>
-
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label for="photo" class="form-label">Passport Size Photo *</label>
-                                    <input type="file" class="form-control @error('photo') is-invalid @enderror"
-                                           id="photo" name="photo" accept="image/*" required>
-                                    @error('photo')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-
-                                <div class="col-md-6 mb-3">
-                                    <label for="signature" class="form-label">Signature *</label>
-                                    <input type="file" class="form-control @error('signature') is-invalid @enderror"
-                                           id="signature" name="signature" accept="image/*" required>
-                                    @error('signature')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label for="marksheet" class="form-label">Last Qualifying Exam Marksheet *</label>
-                                    <input type="file" class="form-control @error('marksheet') is-invalid @enderror"
-                                           id="marksheet" name="marksheet" accept=".pdf,.jpg,.jpeg,.png" required>
-                                    @error('marksheet')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-
-                                <div class="col-md-6 mb-3">
-                                    <label for="transfer_certificate" class="form-label">Transfer Certificate</label>
-                                    <input type="file" class="form-control" id="transfer_certificate" name="transfer_certificate" accept=".pdf,.jpg,.jpeg,.png">
-                                </div>
                             </div>
 
                             <!-- Declaration -->
@@ -391,12 +399,11 @@
                 <div class="alert alert-info">
                     <h5><i class="fas fa-info-circle me-2"></i>Important Notes:</h5>
                     <ul class="mb-0">
-                        <li>Application fee: ₹500 (Non-refundable)</li>
                         <li>All fields marked with * are mandatory</li>
-                        <li>Upload clear scanned copies of documents</li>
                         <li>Keep your application number safe for future reference</li>
-                        <li>Admission is subject to document verification and merit</li>
                         <li>For any queries, contact: shantiniketan2009@yahoo.co.in</li>
+                        <li>Admission process will be communicated separately</li>
+                        <li>Selected candidates will be notified via email/phone</li>
                     </ul>
                 </div>
             </div>
@@ -422,14 +429,25 @@ $(document).ready(function() {
             }
         });
 
-        // File size validation
-        $('input[type="file"]').each(function() {
-            if (this.files[0] && this.files[0].size > 2 * 1024 * 1024) { // 2MB
-                isValid = false;
-                $(this).addClass('is-invalid');
-                alert('File size should not exceed 2MB');
-            }
-        });
+        // Email validation
+        var email = $('#email').val();
+        if (email && !isValidEmail(email)) {
+            isValid = false;
+            $('#email').addClass('is-invalid');
+        }
+
+        // Phone validation
+        var phone = $('#phone').val();
+        if (phone && !isValidPhone(phone)) {
+            isValid = false;
+            $('#phone').addClass('is-invalid');
+        }
+
+        // Declaration checkbox
+        if (!$('#declaration').is(':checked')) {
+            isValid = false;
+            $('#declaration').addClass('is-invalid');
+        }
 
         if (!isValid) {
             e.preventDefault();
@@ -442,6 +460,17 @@ $(document).ready(function() {
         $(this).removeClass('is-invalid');
     });
 
+    // Validation helper functions
+    function isValidEmail(email) {
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
+    function isValidPhone(phone) {
+        var phoneRegex = /^[6-9]\d{9}$/;
+        return phoneRegex.test(phone.replace(/[^\d]/g, ''));
+    }
+
     // Auto-fill state based on pincode (basic implementation)
     $('#pincode').on('blur', function() {
         var pincode = $(this).val();
@@ -451,6 +480,49 @@ $(document).ready(function() {
             console.log('Pincode entered: ' + pincode);
         }
     });
+
+    // Show loading state on form submit
+    $('form').on('submit', function() {
+        if ($(this).find('.is-invalid').length === 0) {
+            $(this).find('button[type="submit"]').html('<i class="fas fa-spinner fa-spin me-2"></i>Submitting...').prop('disabled', true);
+        }
+    });
+
+    // Auto-dismiss success alerts after 15 seconds
+    setTimeout(function() {
+        $('.alert-success').fadeOut();
+    }, 15000);
 });
+
+// Copy application number function
+function copyApplicationNumber() {
+    var applicationNumber = '{{ session("application_number") }}';
+    if (applicationNumber) {
+        navigator.clipboard.writeText(applicationNumber).then(function() {
+            // Show success feedback
+            var copyBtn = document.querySelector('[onclick="copyApplicationNumber()"]');
+            var originalText = copyBtn.innerHTML;
+            copyBtn.innerHTML = '<i class="fas fa-check me-1"></i>Copied!';
+            copyBtn.classList.remove('btn-outline-primary');
+            copyBtn.classList.add('btn-success');
+
+            setTimeout(function() {
+                copyBtn.innerHTML = originalText;
+                copyBtn.classList.remove('btn-success');
+                copyBtn.classList.add('btn-outline-primary');
+            }, 2000);
+        }).catch(function() {
+            // Fallback for older browsers
+            var textArea = document.createElement('textarea');
+            textArea.value = applicationNumber;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+
+            alert('Application number copied: ' + applicationNumber);
+        });
+    }
+}
 </script>
 @endpush
