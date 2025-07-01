@@ -902,20 +902,18 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('home') }}">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                            About Us
+                        <a class="nav-link" href="{{ route('home') }}">
+                            <i class="fas fa-home me-2"></i>Home
                         </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ route('about.index') }}"><i class="fas fa-university me-2"></i>College History</a></li>
-                            <li><a class="dropdown-item" href="{{ route('about.principal') }}"><i class="fas fa-user-tie me-2"></i>Principal's Message</a></li>
-                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('about.index') }}">
+                            <i class="fas fa-university me-2"></i>About Us
+                        </a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                            Courses
+                            <i class="fas fa-graduation-cap me-2"></i>Courses
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('courses.index') }}">
@@ -951,24 +949,32 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('gallery.index') }}">Gallery</a>
+                        <a class="nav-link" href="{{ route('gallery.index') }}">
+                            <i class="fas fa-images me-2"></i>Gallery
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('news.index') }}">News & Events</a>
+                        <a class="nav-link" href="{{ route('news.index') }}">
+                            <i class="fas fa-newspaper me-2"></i>News & Events
+                        </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('alumni.index') }}">Alumni</a>
+                        <a class="nav-link" href="{{ route('alumni.index') }}">
+                            <i class="fas fa-user-graduate me-2"></i>Alumni
+                        </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item d-none">
                         <a class="nav-link" href="{{ route('faq.index') }}">
                             <i class="fas fa-question-circle me-2"></i>FAQ
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('contact.index') }}">Contact</a>
+                        <a class="nav-link" href="{{ route('contact.index') }}">
+                            <i class="fas fa-envelope me-2"></i>Contact
+                        </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item d-none">
                         <a class="nav-link" href="{{ route('sitemap.html') }}">
                             <i class="fas fa-sitemap me-2"></i>Sitemap
                         </a>

@@ -130,7 +130,7 @@ class SitemapController extends Controller
                 'priority' => '0.9',
             ],
             [
-                'loc' => route('contact'),
+                'loc' => route('contact.index'),
                 'lastmod' => Carbon::now()->toAtomString(),
                 'changefreq' => 'monthly',
                 'priority' => '0.8',
@@ -243,16 +243,7 @@ class SitemapController extends Controller
                 'url' => route('about.index'),
                 'description' => 'Learn about our college history, mission, and vision'
             ],
-            [
-                'title' => 'Principal\'s Message',
-                'url' => route('about.principal'),
-                'description' => 'Message from our esteemed Principal'
-            ],
-            [
-                'title' => 'Accreditation',
-                'url' => route('about.accreditation'),
-                'description' => 'Our college accreditations and certifications'
-            ],
+
             [
                 'title' => 'All Courses',
                 'url' => route('courses.index'),
@@ -300,7 +291,7 @@ class SitemapController extends Controller
             ],
             [
                 'title' => 'Contact Us',
-                'url' => route('contact'),
+                'url' => route('contact.index'),
                 'description' => 'Get in touch with us'
             ],
         ];

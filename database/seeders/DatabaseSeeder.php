@@ -15,17 +15,17 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
-
         // Seed departments and designations
         $this->call([
+            AdminSeeder::class,
+            FacultySeeder::class,
+            AlumniSeeder::class,
+            //SampleDataSeeder::class,
             DepartmentSeeder::class,
             DesignationSeeder::class,
             CourseSeeder::class,
             NoticeSeeder::class,
+            
         ]);
     }
 }
