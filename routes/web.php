@@ -31,11 +31,7 @@ Route::get('/system-info', function() {
 })->name('system.info');
 
 // About Us Routes
-Route::prefix('about')->name('about.')->group(function () {
-    Route::get('/', [AboutController::class, 'index'])->name('index');
-    Route::get('/principal-message', [AboutController::class, 'principal'])->name('principal');
-    Route::get('/accreditation', [AboutController::class, 'accreditation'])->name('accreditation');
-});
+Route::get('/about', [AboutController::class, 'index'])->name('about.index');
 
 // Courses Routes
 Route::prefix('courses')->name('courses.')->group(function () {
@@ -56,6 +52,7 @@ Route::prefix('admission')->name('admission.')->group(function () {
 // Faculty Routes
 Route::prefix('faculty')->name('faculty.')->group(function () {
     Route::get('/', [FacultyController::class, 'index'])->name('index');
+    Route::get('/profile/{id}', [FacultyController::class, 'show'])->name('show');
     Route::get('/{department}', [FacultyController::class, 'department'])->name('department');
 });
 

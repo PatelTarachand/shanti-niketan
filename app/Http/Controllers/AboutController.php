@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Faculty;
 
 class AboutController extends Controller
 {
@@ -11,7 +12,22 @@ class AboutController extends Controller
      */
     public function index()
     {
-        return view('about.index');
+        // Get featured faculty members (limit to 6 for the about page)
+        $featuredFaculty = Faculty::active()
+            ->orderBy('created_at', 'desc')
+            ->limit(6)
+            ->get();
+
+        // Get faculty count by department
+        $facultyByDepartment = Faculty::active()
+            ->selectRaw('department, COUNT(*) as count')
+            ->whereNotNull('department')
+            ->where('department', '!=', '')
+            ->groupBy('department')
+            ->pluck('count', 'department')
+            ->toArray();
+
+        return view('about.index', compact('featuredFaculty', 'facultyByDepartment'));
     }
 
     /**
