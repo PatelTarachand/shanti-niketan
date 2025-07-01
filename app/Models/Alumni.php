@@ -83,7 +83,10 @@ class Alumni extends Model
         return $query->where('industry', $industry);
     }
 
-
+    public function scopeMentors($query)
+    {
+        return $query->where('available_for_mentoring', true);
+    }
 
     public function scopeOrdered($query)
     {
