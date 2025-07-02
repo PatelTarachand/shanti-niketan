@@ -8,8 +8,8 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-8">
-                <nav aria-label="breadcrumb" class="mb-3">
-                    <ol class="breadcrumb text-white-50">
+                <nav aria-label="breadcrumb"  class="mb-3">
+                    <ol class="breadcrumb text-white-50" style="background:none">
                         <li class="breadcrumb-item"><a href="{{ route('home') }}" class="text-white-50">Home</a></li>
                         <li class="breadcrumb-item"><a href="{{ route('courses.index') }}" class="text-white-50">Courses</a></li>
                         <li class="breadcrumb-item active text-white">{{ $course->name }}</li>
@@ -298,4 +298,3 @@
 }
 </style>
 @endpush
-@endsection

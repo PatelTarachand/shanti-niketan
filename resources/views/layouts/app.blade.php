@@ -1377,22 +1377,16 @@
                             </p>
                             <div class="footer-stats">
                                 <div class="row text-center">
-                                    <div class="col-4">
+                                    <div class="col-6">
                                         <div class="stat-item">
                                             <h5 class="stat-number">15+</h5>
                                             <small class="stat-label">Years</small>
                                         </div>
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-6">
                                         <div class="stat-item">
-                                            <h5 class="stat-number">5000+</h5>
+                                            <h5 class="stat-number">2500+</h5>
                                             <small class="stat-label">Students</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="stat-item">
-                                            <h5 class="stat-number">100%</h5>
-                                            <small class="stat-label">Placement</small>
                                         </div>
                                     </div>
                                 </div>
