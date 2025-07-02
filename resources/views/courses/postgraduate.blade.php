@@ -274,7 +274,6 @@
             </div>
             <div class="col-lg-4 text-lg-end">
                 <a href="{{ route('admission.apply') }}" class="btn btn-dark btn-lg me-3">Apply Now</a>
-                <a href="{{ route('admission.process') }}" class="btn btn-outline-dark btn-lg">Admission Process</a>
             </div>
         </div>
     </div>

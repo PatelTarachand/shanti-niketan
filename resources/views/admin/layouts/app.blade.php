@@ -263,6 +263,19 @@
                 </a>
             </li>
 
+            <li>
+                <a href="{{ route('admin.contacts.index') }}" class="{{ request()->routeIs('admin.contacts.*') ? 'active' : '' }}">
+                    <i class="fas fa-envelope"></i>
+                    <span class="sidebar-text">Contact Inquiries</span>
+                    @php
+                        $newContactsCount = \App\Models\Contact::where('status', 'new')->count();
+                    @endphp
+                    @if($newContactsCount > 0)
+                        <span class="badge bg-danger ms-2">{{ $newContactsCount }}</span>
+                    @endif
+                </a>
+            </li>
+
             <li class="d-none">
                 <a href="#" class="{{ request()->routeIs('admin.students.*') ? 'active' : '' }}">
                     <i class="fas fa-users"></i>

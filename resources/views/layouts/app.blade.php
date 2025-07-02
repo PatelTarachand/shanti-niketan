@@ -321,25 +321,380 @@
             border: none;
         }
 
-        .footer {
-            background: var(--text-dark);
+        /* Modern Footer Styles */
+        .footer-modern {
+            background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
             color: #fff;
-            padding: 50px 0 20px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .footer h5 {
+        .footer-modern::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23ffffff" opacity="0.02"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
+            pointer-events: none;
+        }
+
+        .footer-main {
+            padding: 60px 0 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-section {
+            height: 100%;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-title {
             color: var(--primary-yellow);
-            margin-bottom: 20px;
+            font-weight: 700;
+            font-size: 1.5rem;
         }
 
-        .footer a {
-            color: #fff;
+        .footer-subtitle {
+            color: #bdc3c7;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .footer-description {
+            color: #bdc3c7;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-stats {
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .stat-item {
+            padding: 10px;
+        }
+
+        .stat-number {
+            color: var(--primary-yellow);
+            font-weight: 700;
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #bdc3c7;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-heading {
+            color: var(--primary-yellow);
+            font-weight: 600;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--primary-yellow);
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            padding: 5px 0;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-yellow);
+            transform: translateX(5px);
+        }
+
+        .footer-links a i {
+            width: 20px;
+            opacity: 0.7;
+        }
+
+        .contact-info {
+            margin-top: 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 215, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .contact-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--dark-yellow) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .contact-icon i {
+            color: var(--text-dark);
+            font-size: 1.2rem;
+        }
+
+        .contact-details h6 {
+            color: var(--primary-yellow);
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .contact-details p {
+            color: #bdc3c7;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .contact-details a {
+            color: #bdc3c7;
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
-        .footer a:hover {
+        .contact-details a:hover {
             color: var(--primary-yellow);
+        }
+
+        .footer-social {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 30px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .social-section {
+            text-align: left;
+        }
+
+        .social-title {
+            color: var(--primary-yellow);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link i {
+            color: #fff;
+            font-size: 1.2rem;
+            position: relative;
+            z-index: 1;
+            transition: color 0.3s ease;
+        }
+
+        .social-link.facebook {
+            background: #3b5998;
+        }
+
+        .social-link.twitter {
+            background: #1da1f2;
+        }
+
+        .social-link.instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+
+        .social-link.linkedin {
+            background: #0077b5;
+        }
+
+        .social-link.youtube {
+            background: #ff0000;
+        }
+
+        .social-link.whatsapp {
+            background: #25d366;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .newsletter-section {
+            text-align: right;
+        }
+
+        .newsletter-title {
+            color: var(--primary-yellow);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .newsletter-text {
+            color: #bdc3c7;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        .newsletter-form .form-control {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            border-radius: 25px 0 0 25px;
+        }
+
+        .newsletter-form .form-control::placeholder {
+            color: #bdc3c7;
+        }
+
+        .newsletter-form .form-control:focus {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--primary-yellow);
+            box-shadow: 0 0 0 0.2rem rgba(255, 215, 0, 0.25);
+            color: #fff;
+        }
+
+        .newsletter-form .btn {
+            border-radius: 0 25px 25px 0;
+            font-weight: 600;
+            padding: 0.6rem 1.5rem;
+        }
+
+        .footer-bottom {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .copyright p {
+            color: #bdc3c7;
+            margin: 0;
+        }
+
+        .footer-credits p {
+            color: #bdc3c7;
+            margin: 0;
+        }
+
+        .developer-link {
+            color: var(--primary-yellow);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .developer-link:hover {
+            color: #fff;
+            text-shadow: 0 0 10px var(--primary-yellow);
+        }
+
+        /* Responsive Footer */
+        @media (max-width: 768px) {
+            .footer-main {
+                padding: 40px 0 30px;
+            }
+
+            .footer-logo {
+                flex-direction: column;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .footer-logo img {
+                margin-bottom: 10px;
+                margin-right: 0 !important;
+            }
+
+            .footer-stats {
+                margin-top: 20px;
+            }
+
+            .social-section,
+            .newsletter-section {
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .newsletter-form {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .contact-icon {
+                margin: 0 auto 15px;
+            }
+
+            .footer-credits {
+                text-align: center !important;
+                margin-top: 10px;
+            }
         }
 
         .quick-links {
@@ -1001,64 +1356,204 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <h5><img src="{{ asset('snc.jpeg') }}" alt="Logo" height="30" class="me-2">Shantineketan College</h5>
-                    <p>Excellence in Education since 2009. We are committed to providing quality education and nurturing future leaders in Raipur, Chhattisgarh.</p>
-                    <div class="social-links">
-                        <a href="#" class="me-3"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="me-3"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="me-3"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="me-3"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="me-3"><i class="fab fa-youtube"></i></a>
+    <footer class="footer-modern">
+        <!-- Main Footer Content -->
+        <div class="footer-main">
+            <div class="container">
+                <div class="row">
+                    <!-- College Information -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="footer-section">
+                            <div class="footer-logo mb-3">
+                                <img src="{{ asset('snc.jpeg') }}" alt="Shantineketan College Logo" height="50" class="me-3">
+                                <div>
+                                    <h4 class="footer-title mb-1">Shantineketan College</h4>
+                                    <p class="footer-subtitle mb-0">शांतिनिकेतन कॉलेज</p>
+                                </div>
+                            </div>
+                            <p class="footer-description">
+                                Excellence in Education since 2009. We are committed to providing quality education
+                                and nurturing future leaders with innovative teaching methods and industry-relevant curriculum.
+                            </p>
+                            <div class="footer-stats">
+                                <div class="row text-center">
+                                    <div class="col-4">
+                                        <div class="stat-item">
+                                            <h5 class="stat-number">15+</h5>
+                                            <small class="stat-label">Years</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="stat-item">
+                                            <h5 class="stat-number">5000+</h5>
+                                            <small class="stat-label">Students</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="stat-item">
+                                            <h5 class="stat-number">100%</h5>
+                                            <small class="stat-label">Placement</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="col-lg-2 col-md-6 mb-4">
+                        <div class="footer-section">
+                            <h5 class="footer-heading">Quick Links</h5>
+                            <ul class="footer-links">
+                                <li><a href="{{ route('home') }}"><i class="fas fa-home me-2"></i>Home</a></li>
+                                <li><a href="{{ route('about.index') }}"><i class="fas fa-info-circle me-2"></i>About Us</a></li>
+                                <li><a href="{{ route('courses.index') }}"><i class="fas fa-graduation-cap me-2"></i>Courses</a></li>
+                                <li><a href="{{ route('faculty.index') }}"><i class="fas fa-chalkboard-teacher me-2"></i>Faculty</a></li>
+                                <li><a href="{{ route('gallery.index') }}"><i class="fas fa-images me-2"></i>Gallery</a></li>
+                                <li><a href="{{ route('notices.index') }}"><i class="fas fa-bell me-2"></i>Notices</a></li>
+                                <li><a href="{{ route('contact.index') }}"><i class="fas fa-envelope me-2"></i>Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Academic Programs -->
+                    <div class="col-lg-2 col-md-6 mb-4">
+                        <div class="footer-section">
+                            <h5 class="footer-heading">Programs</h5>
+                            <ul class="footer-links">
+                                <li><a href="{{ route('courses.undergraduate') }}"><i class="fas fa-user-graduate me-2"></i>Undergraduate</a></li>
+                                <li><a href="{{ route('courses.postgraduate') }}"><i class="fas fa-graduation-cap me-2"></i>Postgraduate</a></li>
+                                <li><a href="{{ route('courses.diploma') }}"><i class="fas fa-certificate me-2"></i>Diploma</a></li>
+                                <li><a href="{{ route('admission.apply') }}"><i class="fas fa-user-plus me-2"></i>Apply Now</a></li>
+                                <li><a href="{{ route('sitemap.html') }}"><i class="fas fa-sitemap me-2"></i>Sitemap</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="footer-section">
+                            <h5 class="footer-heading">Contact Information</h5>
+                            <div class="contact-info">
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div class="contact-details">
+                                        <h6>Campus Address</h6>
+                                        <p>Ring Road No.1, Near Pani Tanki<br>
+                                        Changorbhatha, Raipur<br>
+                                        Chhattisgarh - 492001, India</p>
+                                    </div>
+                                </div>
+
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-phone"></i>
+                                    </div>
+                                    <div class="contact-details">
+                                        <h6>Phone Numbers</h6>
+                                        <p>
+                                            <a href="tel:+919425514719">+91 94255 14719</a><br>
+                                            <a href="tel:07712243085">0771-2243085</a>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div class="contact-details">
+                                        <h6>Email Address</h6>
+                                        <p><a href="mailto:shantiniketan2009@yahoo.co.in">shantiniketan2009@yahoo.co.in</a></p>
+                                    </div>
+                                </div>
+
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div class="contact-details">
+                                        <h6>Office Hours</h6>
+                                        <p>Monday - Saturday: 9:00 AM - 5:00 PM</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </div>
+        </div>
 
-                 <div class="col-lg-4 col-md-6 mb-4">
-                    <h5>Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="{{ route('about.index') }}">About Us</a></li>
-                        <li><a href="{{ route('courses.index') }}">Courses</a></li>
-                        <li><a href="{{ route('admission.apply') }}">Apply Now</a></li>
-                        <li><a href="{{ route('faculty.index') }}">Faculty</a></li>
-                        <li><a href="{{ route('sitemap.html') }}">Sitemap</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-2 col-md-6 mb-4 d-none">
-                    <h5>Students</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="{{ route('student.timetable') }}">Time Table</a></li>
-                        <li><a href="{{ route('student.exams') }}">Exam Schedule</a></li>
-                        <li><a href="{{ route('student.results') }}">Results</a></li>
-                        <li><a href="{{ route('student.notices') }}">Notices</a></li>
-                        <li><a href="{{ route('alumni.index') }}">Alumni</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <h5>Contact Info</h5>
-                    <ul class="list-unstyled">
-                        <li><i class="fas fa-map-marker-alt me-2"></i>Ring Road No.1, Near Pani Tanki, Changorbhatha, Raipur, Chhattisgarh - 492001</li>
-                        <li><i class="fas fa-phone me-2"></i>+91 94255 14719</li>
-                        <li><i class="fas fa-phone me-2"></i>0771-2243085</li>
-                        <li><i class="fas fa-envelope me-2"></i>shantiniketan2009@yahoo.co.in</li>
-                    </ul>
+        <!-- Social Media & Newsletter -->
+        <div class="footer-social">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-3 mb-lg-0">
+                        <div class="social-section">
+                            <h6 class="social-title">Follow Us</h6>
+                            <div class="social-links">
+                                <a href="#" class="social-link facebook" title="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="social-link twitter" title="Twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="social-link instagram" title="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="social-link linkedin" title="LinkedIn">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="#" class="social-link youtube" title="YouTube">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                                <a href="https://wa.me/919425514719" class="social-link whatsapp" title="WhatsApp" target="_blank">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="newsletter-section">
+                            <h6 class="newsletter-title">Stay Updated</h6>
+                            <p class="newsletter-text">Get latest updates about admissions, events, and announcements</p>
+                            <div class="newsletter-form">
+                                <div class="input-group">
+                                    <input type="email" class="form-control" placeholder="Enter your email address">
+                                    <button class="btn btn-warning" type="button">
+                                        <i class="fas fa-paper-plane me-1"></i>Subscribe
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <hr class="my-4">
-
-            <div class="row align-items-center">
-                <div class="col-md-12 text-center">
-                    <p class="mb-0">&copy; {{ date('Y') }} Shantineketan College. All rights reserved. Developed By <a href="https://itmingo.com/" taget="_blank">IT Mingo LLP</a></p>
-                </div>
-                <div class="col-md-6 text-md-end d-none">
-                    <a href="{{ route('disclosure.index') }}" class="me-3">Mandatory Disclosure</a>
-                    <a href="{{ route('disclosure.rti') }}" class="me-3">RTI</a>
-                    <a href="{{ route('disclosure.anti-ragging') }}">Anti-Ragging Policy</a>
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-2 mb-lg-0">
+                        <div class="copyright">
+                            <p class="mb-0">
+                                &copy; {{ date('Y') }} <strong>Shantineketan College</strong>. All rights reserved.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="footer-credits text-lg-end">
+                            <p class="mb-0">
+                                Designed & Developed by
+                                <a href="https://itmingo.com/" target="_blank" class="developer-link">
+                                    <strong>IT Mingo LLP</strong>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

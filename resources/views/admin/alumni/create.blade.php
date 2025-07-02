@@ -40,9 +40,9 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label for="name" class="form-label">Full Name <span class="text-danger">*</span></label>
+                                <label for="name" class="form-label">Full Name</label>
                                 <input type="text" class="form-control @error('name') is-invalid @enderror"
-                                       id="name" name="name" value="{{ old('name') }}" required>
+                                       id="name" name="name" value="{{ old('name') }}">
                                 @error('name')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror

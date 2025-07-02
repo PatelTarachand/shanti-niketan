@@ -79,7 +79,7 @@ class AlumniController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'nullable|string|max:255',
             'email' => 'required|email|unique:alumnis,email',
             'phone' => 'nullable|string|max:20',
             'student_id' => 'nullable|string|max:50',
@@ -155,7 +155,7 @@ class AlumniController extends Controller
     public function update(Request $request, Alumni $alumni)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'nullable|string|max:255',
             'email' => 'required|email|unique:alumnis,email,' . $alumni->id,
             'phone' => 'nullable|string|max:20',
             'student_id' => 'nullable|string|max:50',
