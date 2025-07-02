@@ -171,6 +171,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::post('applications/{application}/status', [App\Http\Controllers\Admin\ApplicationController::class, 'updateStatus'])->name('applications.status');
         Route::post('applications/bulk-action', [App\Http\Controllers\Admin\ApplicationController::class, 'bulkAction'])->name('applications.bulk-action');
         Route::get('applications/export', [App\Http\Controllers\Admin\ApplicationController::class, 'export'])->name('applications.export');
+
+        // Contact Inquiries management
+        Route::resource('contacts', App\Http\Controllers\Admin\ContactController::class)->except(['create', 'store', 'edit']);
+        Route::patch('contacts/{contact}/status', [App\Http\Controllers\Admin\ContactController::class, 'updateStatus'])->name('contacts.update-status');
+        Route::post('contacts/bulk-action', [App\Http\Controllers\Admin\ContactController::class, 'bulkAction'])->name('contacts.bulk-action');
     });
 });
 

@@ -17,7 +17,7 @@
 </section>
 
 <!-- Hero Section -->
-<section class="hero-section bg-primary text-white py-5">
+<section class="hero-section bg-primary  py-5">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-8">
@@ -28,10 +28,10 @@
                     <a href="#about-us" class="btn btn-warning btn-lg">
                         <i class="fas fa-university me-2"></i>Our Story
                     </a>
-                    <a href="#why-choose-us" class="btn btn-outline-light btn-lg">
+                    <a href="#why-choose-us" class="btn btn-success btn-lg">
                         <i class="fas fa-star me-2"></i>Why Choose Us
                     </a>
-                    <a href="#leadership" class="btn btn-outline-light btn-lg">
+                    <a href="#leadership" class="btn btn-danger text-white btn-lg">
                         <i class="fas fa-users me-2"></i>Leadership
                     </a>
                 </div>

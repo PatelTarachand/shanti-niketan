@@ -41,63 +41,123 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card text-center h-100">
-                    <div class="card-body">
-                        <div class="bg-warning text-dark rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
-                            <i class="fas fa-map-marker-alt fa-2x"></i>
-                        </div>
-                        <h5>Address</h5>
-                        <p>Ring Road No.1, Near Pani Tanki<br>Changorbhatha, Raipur<br>Chhattisgarh - 492001</p>
+        <!-- Comprehensive Contact Information Card -->
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="card contact-info-card">
+                    <div class="card-header bg-primary text-white text-center">
+                        <h3 class="mb-0"><i class="fas fa-address-book me-2"></i>Complete Contact Information</h3>
+                        <p class="mb-0 mt-2">All the details you need to reach us</p>
                     </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card text-center h-100">
                     <div class="card-body">
-                        <div class="bg-warning text-dark rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
-                            <i class="fas fa-phone fa-2x"></i>
-                        </div>
-                        <h5>Phone</h5>
-                        <p>
-                            <strong>Main:</strong> +91 94255 14719<br>
-                            <strong>Office:</strong> 0771-2243085<br>
-                            <strong>Admission:</strong> +91 94255 26891<br>
-                            <strong>Other:</strong> +91 78281 68418
-                        </p>
-                    </div>
-                </div>
-            </div>
+                        <div class="row">
+                            <!-- Address Section -->
+                            <div class="col-lg-4 mb-4">
+                                <div class="contact-page-section">
+                                    <div class="contact-page-icon">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <h5 class="contact-page-title">Campus Address</h5>
+                                    <div class="contact-page-details">
+                                        <p class="mb-2">
+                                            <strong>Shantineketan College</strong><br>
+                                            Ring Road No.1, Near Pani Tanki<br>
+                                            Changorbhatha, Raipur<br>
+                                            Chhattisgarh - 492001, India
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
 
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card text-center h-100">
-                    <div class="card-body">
-                        <div class="bg-warning text-dark rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
-                            <i class="fas fa-envelope fa-2x"></i>
-                        </div>
-                        <h5>Email</h5>
-                        <p>
-                            <strong>General:</strong> shantiniketan2009@yahoo.co.in<br>
-                            <strong>Admission:</strong> shantiniketan2009@yahoo.co.in<br>
-                            <strong>Placement:</strong> shantiniketan2009@yahoo.co.in
-                        </p>
-                    </div>
-                </div>
-            </div>
+                            <!-- Phone Numbers Section -->
+                            <div class="col-lg-4 mb-4">
+                                <div class="contact-page-section">
+                                    <div class="contact-page-icon">
+                                        <i class="fas fa-phone"></i>
+                                    </div>
+                                    <h5 class="contact-page-title">Phone Numbers</h5>
+                                    <div class="contact-page-details">
+                                        <p class="contact-page-item">
+                                            <i class="fas fa-building text-primary me-2"></i>
+                                            <strong>Office:</strong> 0771-2243085
+                                        </p>
+                                        <p class="contact-page-item">
+                                            <i class="fas fa-user-graduate text-success me-2"></i>
+                                            <strong>Director:</strong> +91 94255 26891
+                                        </p>
+                                        <p class="contact-page-item">
+                                            <i class="fas fa-briefcase text-warning me-2"></i>
+                                            <strong>Director:</strong> +91 88273 76688
+                                        </p>
+                                        <p class="contact-page-item">
+                                            <i class="fas fa-book text-info me-2"></i>
+                                            <strong>Admin:</strong> +91 89828 80267
+                                        </p>
+                                        <p class="contact-page-item">
+                                            <i class="fas fa-book-open text-purple me-2"></i>
+                                            <strong>HOD CS:</strong> +91 78281 68418
+                                        </p>
+                                        <p class="contact-page-item">
+                                            <i class="fas fa-bed text-danger me-2"></i>
+                                            <strong>Office:</strong> +91 94255 14719
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
 
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card text-center h-100">
-                    <div class="card-body">
-                        <div class="bg-warning text-dark rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
-                            <i class="fas fa-clock fa-2x"></i>
+                            <!-- Email & Hours Section -->
+                            <div class="col-lg-4 mb-4">
+                                <div class="contact-page-section">
+                                    <div class="contact-page-icon">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <h5 class="contact-page-title">Email & Hours</h5>
+                                    <div class="contact-page-details">
+                                        <p class="contact-page-item">
+                                            <i class="fas fa-envelope text-primary me-2"></i>
+                                            <strong>General Email:</strong><br>
+                                            <a href="mailto:shantiniketan2009@yahoo.co.in" class="text-decoration-none">
+                                                shantiniketan2009@yahoo.co.in
+                                            </a>
+                                        </p>
+
+                                        <div class="mt-4">
+                                            <p class="contact-page-item">
+                                                <i class="fas fa-clock text-warning me-2"></i>
+                                                <strong>Office Hours:</strong>
+                                            </p>
+                                            <ul class="list-unstyled ms-4">
+                                                <li><strong>Monday - Saturday:</strong> 9:00 AM - 5:00 PM</li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <h5>Office Hours</h5>
-                        <p>
-                            <strong>Monday - Friday:</strong><br>9:00 AM - 5:00 PM<br>
-                            <strong>Saturday:</strong><br>9:00 AM - 1:00 PM
-                        </p>
+
+                        <!-- Quick Contact Actions -->
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <div class="quick-actions text-center">
+                                    <h6 class="mb-3">Quick Contact Actions</h6>
+                                    <div class="d-flex flex-wrap justify-content-center gap-3">
+                                        <a href="tel:+919425526891" class="btn btn-outline-primary btn-sm">
+                                            <i class="fas fa-phone me-1"></i>Call Admissions
+                                        </a>
+                                        <a href="mailto:shantiniketan2009@yahoo.co.in" class="btn btn-outline-success btn-sm">
+                                            <i class="fas fa-envelope me-1"></i>Send Email
+                                        </a>
+                                        <a href="https://wa.me/919425526891" target="_blank" class="btn btn-outline-success btn-sm">
+                                            <i class="fab fa-whatsapp me-1"></i>WhatsApp
+                                        </a>
+                                        <a href="#contact-form" class="btn btn-outline-warning btn-sm">
+                                            <i class="fas fa-paper-plane me-1"></i>Contact Form
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -110,7 +170,7 @@
     <div class="container">
         <div class="row">
             <!-- Contact Form -->
-            <div class="col-lg-6 mb-4">
+            <div class="col-lg-6 mb-4" id="contact-form">
                 <div class="card">
                     <div class="card-header">
                         <h4 class="mb-0"><i class="fas fa-paper-plane me-2"></i>Send us a Message</h4>
@@ -258,91 +318,7 @@
     </div>
 </section>
 
-<!-- Department Contacts -->
-<section class="py-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 text-center mb-5">
-                <h2 class="section-title">Department Contacts</h2>
-                <p class="lead">Direct contact information for specific departments</p>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card">
-                    <div class="card-body text-center">
-                        <i class="fas fa-user-graduate fa-3x text-warning mb-3"></i>
-                        <h5>Admissions Office</h5>
-                        <p><strong>Phone:</strong> +91 94255 26891</p>
-                        <p><strong>Email:</strong> shantiniketan2009@yahoo.co.in</p>
-                        <p><strong>Timing:</strong> 9:00 AM - 5:00 PM</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card">
-                    <div class="card-body text-center">
-                        <i class="fas fa-briefcase fa-3x text-warning mb-3"></i>
-                        <h5>Placement Cell</h5>
-                        <p><strong>Phone:</strong> +91 88273 76688</p>
-                        <p><strong>Email:</strong> shantiniketan2009@yahoo.co.in</p>
-                        <p><strong>Timing:</strong> 9:00 AM - 5:00 PM</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card">
-                    <div class="card-body text-center">
-                        <i class="fas fa-book fa-3x text-warning mb-3"></i>
-                        <h5>Academic Office</h5>
-                        <p><strong>Phone:</strong> +91 89828 80267</p>
-                        <p><strong>Email:</strong> shantiniketan2009@yahoo.co.in</p>
-                        <p><strong>Timing:</strong> 9:00 AM - 5:00 PM</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card">
-                    <div class="card-body text-center">
-                        <i class="fas fa-dollar-sign fa-3x text-warning mb-3"></i>
-                        <h5>Accounts Office</h5>
-                        <p><strong>Phone:</strong> 0771-2243085</p>
-                        <p><strong>Email:</strong> shantiniketan2009@yahoo.co.in</p>
-                        <p><strong>Timing:</strong> 9:00 AM - 4:00 PM</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card">
-                    <div class="card-body text-center">
-                        <i class="fas fa-book-open fa-3x text-warning mb-3"></i>
-                        <h5>Library</h5>
-                        <p><strong>Phone:</strong> +91 78281 68418</p>
-                        <p><strong>Email:</strong> shantiniketan2009@yahoo.co.in</p>
-                        <p><strong>Timing:</strong> 8:00 AM - 8:00 PM</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card">
-                    <div class="card-body text-center">
-                        <i class="fas fa-bed fa-3x text-warning mb-3"></i>
-                        <h5>Hostel Office</h5>
-                        <p><strong>Phone:</strong> +91 94255 14719</p>
-                        <p><strong>Email:</strong> shantiniketan2009@yahoo.co.in</p>
-                        <p><strong>Timing:</strong> 24/7 Available</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- FAQ Section -->
 <section class="py-5 bg-light">
@@ -491,4 +467,255 @@ $(document).ready(function() {
     });
 });
 </script>
+@endpush
+
+@push('styles')
+<style>
+/* Contact Information Card Styles */
+.contact-info-card {
+    border: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.contact-info-card .card-header {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    border: none;
+    padding: 2rem 1.5rem;
+}
+
+.contact-page-section {
+    text-align: center;
+    padding: 1.5rem;
+    height: 100%;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 123, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-page-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 123, 255, 0.05) 0%, rgba(255, 193, 7, 0.05) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.contact-page-section:hover::before {
+    opacity: 1;
+}
+
+.contact-page-section:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 123, 255, 0.15);
+    border-color: rgba(0, 123, 255, 0.3);
+}
+
+.contact-page-icon {
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2.2rem;
+    color: #fff;
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.contact-page-section:hover .contact-page-icon {
+    transform: scale(1.1) rotateY(10deg);
+    box-shadow: 0 12px 35px rgba(0, 123, 255, 0.4);
+}
+
+.contact-page-title {
+    color: #2c3e50;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    font-size: 1.35rem;
+    position: relative;
+    z-index: 1;
+}
+
+.contact-page-details {
+    text-align: left;
+    position: relative;
+    z-index: 1;
+}
+
+.contact-page-item {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.7);
+    border-left: 4px solid #007bff;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.contact-page-item:hover {
+    background: rgba(0, 123, 255, 0.05);
+    transform: translateX(5px);
+    border-left-color: #ffc107;
+}
+
+.contact-page-item:last-child {
+    margin-bottom: 0;
+}
+
+.contact-page-item strong {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.quick-actions {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-top: 3px solid #007bff;
+}
+
+.quick-actions .btn {
+    margin: 0.25rem;
+    border-radius: 25px;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.quick-actions .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.text-purple {
+    color: #6f42c1 !important;
+}
+
+/* Enhanced Quick Actions */
+.quick-actions {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 2rem;
+    border-radius: 15px;
+    border-top: 4px solid #007bff;
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.quick-actions:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.15);
+}
+
+.quick-actions .btn {
+    margin: 0.5rem;
+    border-radius: 30px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.quick-actions .btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.quick-actions .btn-outline-primary:hover {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    border-color: #007bff;
+}
+
+.quick-actions .btn-outline-success:hover {
+    background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);
+    border-color: #28a745;
+}
+
+.quick-actions .btn-outline-warning:hover {
+    background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%);
+    border-color: #ffc107;
+    color: #212529;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-page-section {
+        margin-bottom: 1.5rem;
+        padding: 1.2rem;
+    }
+
+    .contact-page-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 1.8rem;
+    }
+
+    .contact-page-title {
+        font-size: 1.2rem;
+    }
+
+    .contact-page-item {
+        padding: 0.6rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .quick-actions {
+        padding: 1.5rem;
+    }
+
+    .quick-actions .btn {
+        width: 100%;
+        margin: 0.25rem 0;
+        padding: 0.8rem 1rem;
+    }
+
+    .contact-info-card .card-header {
+        padding: 1.5rem 1rem;
+    }
+
+    .contact-page-section:hover {
+        transform: translateY(-4px);
+    }
+}
+
+/* Animation for smooth scrolling to contact form */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Enhanced hover effects */
+.contact-section .contact-icon {
+    transition: all 0.3s ease;
+}
+
+.contact-section:hover .contact-icon {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(255, 193, 7, 0.4);
+}
+
+/* Email link styling */
+a[href^="mailto:"] {
+    color: #007bff;
+    font-weight: 500;
+}
+
+a[href^="mailto:"]:hover {
+    color: #0056b3;
+    text-decoration: underline !important;
+}
+</style>
 @endpush
