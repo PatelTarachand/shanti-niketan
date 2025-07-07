@@ -370,7 +370,7 @@
 </section>
 
 <!-- Our Faculty Section -->
-<section id="our-faculty" class="py-5 bg-light">
+<section id="our-faculty" class="py-5 bg-light d-none">
     <div class="container">
         <div class="row">
             <div class="col-12 text-center mb-5">
@@ -490,6 +490,117 @@
             <div class="col-12 text-center">
                 <a href="{{ route('faculty.index') }}" class="btn btn-primary btn-lg">
                     <i class="fas fa-users me-2"></i>Meet All Faculty Members
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Faculty Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="section-title">Our Expert Faculty</h2>
+                <p class="lead">Meet our experienced and dedicated faculty members</p>
+            </div>
+        </div>
+
+        <div class="row">
+            @if(isset($faculty) && $faculty->count() > 0)
+                @foreach($faculty->take(6) as $member)
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card h-100 faculty-card">
+                        <div class="card-body text-center">
+                            <div class="faculty-image mb-3">
+                                @if($member->image)
+                                    <img src="{{ Storage::url($member->image) }}" class="rounded-circle" alt="{{ $member->name }}" style="width: 120px; height: 120px; object-fit: cover;">
+                                @else
+                                    <img src="https://via.placeholder.com/120x120/FFD700/2C3E50?text={{ urlencode(substr($member->name, 0, 3)) }}" class="rounded-circle" alt="{{ $member->name }}">
+                                @endif
+                            </div>
+                            <h5 class="card-title">{{ $member->name }}</h5>
+                            <p class="text-warning fw-semibold">{{ $member->designation }}</p>
+                            <p class="card-text small">{{ $member->qualification }}<br>{{ $member->experience_years }}+ years of experience</p>
+                            @if($member->research_interests)
+                                <div class="faculty-specialization">
+                                    @foreach(array_slice($member->research_interests, 0, 2) as $interest)
+                                        <span class="badge bg-light text-dark me-1">{{ $interest }}</span>
+                                    @endforeach
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            @else
+                <!-- Fallback static content -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card h-100 faculty-card">
+                        <div class="card-body text-center">
+                            <div class="faculty-image mb-3">
+                                <img src="https://via.placeholder.com/120x120/FFD700/2C3E50?text=Dr.+R.K." class="rounded-circle" alt="Dr. Rajesh Kumar">
+                            </div>
+                            <h5 class="card-title">Dr. Rajesh Kumar</h5>
+                            <p class="text-warning fw-semibold">Principal</p>
+                            <p class="card-text small">Ph.D. in Computer Science<br>25+ years of experience</p>
+                            <div class="faculty-specialization">
+                                <span class="badge bg-light text-dark me-1">AI & ML</span>
+                                <span class="badge bg-light text-dark me-1">Data Science</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
+        </div>
+
+        <!-- Faculty Stats -->
+        <div class="row mt-5 d-none">
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="text-center">
+                    <div class="bg-warning text-dark rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                        <i class="fas fa-user-graduate fa-2x"></i>
+                    </div>
+                    <h4 class="text-warning">35+</h4>
+                    <p>Expert Faculty Members</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="text-center">
+                    <div class="bg-warning text-dark rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                        <i class="fas fa-medal fa-2x"></i>
+                    </div>
+                    <h4 class="text-warning">15+</h4>
+                    <p>Ph.D. Holders</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="text-center">
+                    <div class="bg-warning text-dark rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                        <i class="fas fa-industry fa-2x"></i>
+                    </div>
+                    <h4 class="text-warning">20+</h4>
+                    <p>Industry Experts</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="text-center">
+                    <div class="bg-warning text-dark rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                        <i class="fas fa-award fa-2x"></i>
+                    </div>
+                    <h4 class="text-warning">500+</h4>
+                    <p>Years Combined Experience</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 text-center mt-4">
+                <a href="{{ route('faculty.index') }}" class="btn btn-primary btn-lg">
+                    <i class="fas fa-users me-2"></i>View All Faculty Members
                 </a>
             </div>
         </div>

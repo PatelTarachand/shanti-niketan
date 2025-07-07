@@ -27,7 +27,12 @@ class AboutController extends Controller
             ->pluck('count', 'department')
             ->toArray();
 
-        return view('about.index', compact('featuredFaculty', 'facultyByDepartment'));
+             // Get featured faculty
+        $faculty = Faculty::active()
+            ->ordered()
+            ->get();
+
+        return view('about.index', compact('featuredFaculty', 'facultyByDepartment','faculty'));
     }
 
     /**

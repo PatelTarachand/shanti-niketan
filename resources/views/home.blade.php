@@ -520,7 +520,7 @@
         </div>
 
         <!-- Faculty Stats -->
-        <div class="row mt-5">
+        <div class="row mt-5 d-none">
             <div class="col-lg-3 col-md-6 mb-4">
                 <div class="text-center">
                     <div class="bg-warning text-dark rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">

@@ -32,7 +32,7 @@ class HomeController extends Controller
         // Get featured faculty
         $faculty = Faculty::active()
             ->ordered()
-            ->limit(6)
+            ->limit(12)
             ->get();
 
         // Get featured gallery items
