@@ -30,4 +30,19 @@ class FacultyController extends Controller
 
         return view('faculty.department', compact('department', 'faculty'));
     }
+
+    public function show($id)
+    {
+        $faculty = Faculty::active()->findOrFail($id);
+
+        // Get related faculty from same department
+        $relatedFaculty = Faculty::active()
+            ->where('department', $faculty->department)
+            ->where('id', '!=', $faculty->id)
+            ->ordered()
+            ->limit(6)
+            ->get();
+
+        return view('faculty.show', compact('faculty', 'relatedFaculty'));
+    }
 }

@@ -404,12 +404,12 @@
                 <h3 class="text-center text-primary mb-4">Featured Faculty Members</h3>
             </div>
 
-            @foreach($featuredFaculty as $faculty)
+            @foreach($featuredFaculty as $featuredMember)
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="faculty-card">
                     <div class="faculty-photo">
-                        @if($faculty->photo)
-                            <img src="{{ asset('storage/' . $faculty->photo) }}" alt="{{ $faculty->name }}" class="img-fluid">
+                        @if($featuredMember->image)
+                            <img src="{{ asset('storage/' . $featuredMember->image) }}" alt="{{ $featuredMember->name }}" class="img-fluid">
                         @else
                             <div class="faculty-placeholder">
                                 <i class="fas fa-user-tie"></i>
@@ -417,23 +417,23 @@
                         @endif
                     </div>
                     <div class="faculty-info">
-                        <h5 class="faculty-name">{{ $faculty->name }}</h5>
-                        <p class="faculty-designation text-primary">{{ $faculty->designation }}</p>
+                        <h5 class="faculty-name">{{ $featuredMember->name }}</h5>
+                        <p class="faculty-designation text-primary">{{ $featuredMember->designation }}</p>
                         <p class="faculty-department text-muted">
-                            <i class="fas fa-building me-1"></i>{{ $faculty->department }}
+                            <i class="fas fa-building me-1"></i>{{ $featuredMember->department }}
                         </p>
-                        @if($faculty->qualification)
+                        @if($featuredMember->qualification)
                         <p class="faculty-qualification text-muted small">
-                            <i class="fas fa-graduation-cap me-1"></i>{{ Str::limit($faculty->qualification, 50) }}
+                            <i class="fas fa-graduation-cap me-1"></i>{{ Str::limit($featuredMember->qualification, 50) }}
                         </p>
                         @endif
-                        @if($faculty->specialization)
+                        @if($featuredMember->specialization)
                         <p class="faculty-specialization text-muted small">
-                            <i class="fas fa-star me-1"></i>{{ Str::limit($faculty->specialization, 60) }}
+                            <i class="fas fa-star me-1"></i>{{ Str::limit($featuredMember->specialization, 60) }}
                         </p>
                         @endif
                         <div class="faculty-actions mt-3">
-                            <a href="{{ route('faculty.show', $faculty->id) }}" class="btn btn-outline-primary btn-sm">
+                            <a href="{{ route('faculty.show', $featuredMember->id) }}" class="btn btn-outline-primary btn-sm">
                                 <i class="fas fa-eye me-1"></i>View Profile
                             </a>
                         </div>
@@ -507,24 +507,34 @@
         </div>
 
         <div class="row">
+
             @if(isset($faculty) && $faculty->count() > 0)
                 @foreach($faculty->take(6) as $member)
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="card h-100 faculty-card">
                         <div class="card-body text-center">
                             <div class="faculty-image mb-3">
-                                @if($member->image)
-                                    <img src="{{ Storage::url($member->image) }}" class="rounded-circle" alt="{{ $member->name }}" style="width: 120px; height: 120px; object-fit: cover;">
+                                @if(is_object($member) && isset($member->image) && $member->image)
+                                    <img src="{{ Storage::url($member->image) }}" class="rounded-circle" alt="{{ is_object($member) ? $member->name : 'Faculty Member' }}" style="width: 120px; height: 120px; object-fit: cover;">
+                                @elseif(is_array($member) && isset($member['image']) && $member['image'])
+                                    <img src="{{ Storage::url($member['image']) }}" class="rounded-circle" alt="{{ $member['name'] ?? 'Faculty Member' }}" style="width: 120px; height: 120px; object-fit: cover;">
                                 @else
-                                    <img src="https://via.placeholder.com/120x120/FFD700/2C3E50?text={{ urlencode(substr($member->name, 0, 3)) }}" class="rounded-circle" alt="{{ $member->name }}">
+                                    <img src="https://via.placeholder.com/120x120/FFD700/2C3E50?text={{ urlencode(substr((is_object($member) ? $member->name : ($member['name'] ?? 'FM')), 0, 3)) }}" class="rounded-circle" alt="{{ is_object($member) ? $member->name : ($member['name'] ?? 'Faculty Member') }}">
                                 @endif
                             </div>
-                            <h5 class="card-title">{{ $member->name }}</h5>
-                            <p class="text-warning fw-semibold">{{ $member->designation }}</p>
-                            <p class="card-text small">{{ $member->qualification }}<br>{{ $member->experience_years }}+ years of experience</p>
-                            @if($member->research_interests)
+                            <h5 class="card-title">{{ is_object($member) ? $member->name : ($member['name'] ?? 'Faculty Member') }}</h5>
+                            <p class="text-warning fw-semibold">{{ is_object($member) ? $member->designation : ($member['designation'] ?? '') }}</p>
+                            <p class="card-text small">{{ is_object($member) ? $member->qualification : ($member['qualification'] ?? '') }}<br>{{ is_object($member) ? $member->experience_years : ($member['experience_years'] ?? 0) }}+ years of experience</p>
+                            @if((is_object($member) && $member->research_interests) || (is_array($member) && isset($member['research_interests']) && $member['research_interests']))
                                 <div class="faculty-specialization">
-                                    @foreach(array_slice($member->research_interests, 0, 2) as $interest)
+                                    @php
+                                        $interests = is_object($member) ? $member->research_interests : $member['research_interests'];
+                                        if (is_string($interests)) {
+                                            $interests = json_decode($interests, true) ?? [];
+                                        }
+                                        $interests = is_array($interests) ? $interests : [];
+                                    @endphp
+                                    @foreach(array_slice($interests, 0, 2) as $interest)
                                         <span class="badge bg-light text-dark me-1">{{ $interest }}</span>
                                     @endforeach
                                 </div>

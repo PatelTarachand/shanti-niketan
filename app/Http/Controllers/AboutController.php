@@ -27,7 +27,7 @@ class AboutController extends Controller
             ->pluck('count', 'department')
             ->toArray();
 
-             // Get featured faculty
+        // Get featured faculty
         $faculty = Faculty::active()
             ->ordered()
             ->get();
