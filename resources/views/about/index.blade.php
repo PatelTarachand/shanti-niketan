@@ -509,7 +509,7 @@
         <div class="row">
 
             @if(isset($faculty) && $faculty->count() > 0)
-                @foreach($faculty->take(6) as $member)
+                @foreach($faculty as $member)
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="card h-100 faculty-card">
                         <div class="card-body text-center">
