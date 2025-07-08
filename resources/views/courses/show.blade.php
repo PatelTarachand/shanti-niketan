@@ -117,7 +117,7 @@
                 @endif
 
                 <!-- Fee Structure -->
-                <div class="card mb-4">
+                <div class="card mb-4 d-none">
                     <div class="card-body">
                         <h3 class="card-title">Fee Structure</h3>
                         <div class="table-responsive">
