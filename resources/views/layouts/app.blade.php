@@ -1266,7 +1266,12 @@
                             <i class="fas fa-university me-2"></i>About Us
                         </a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('courses.index') }}">
+                            <i class="fas fa-graduation-cap me-2"></i>Courses
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown d-none">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
                             <i class="fas fa-graduation-cap me-2"></i>Courses
                         </a>
