@@ -44,7 +44,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center mb-5">
-                        <h2 class="section-title">{{ $department }} Programs</h2>
+                        <h2 class="section-title">{{ $department }}</h2>
                         <p class="lead">Professional education with industry focus</p>
                         <div class="section-divider mx-auto"></div>
                     </div>
@@ -73,7 +73,7 @@
 
                                     </div>
                                     <div class="row mt-2">
-                                        <div class="col-6">
+                                        <div class="col-6 d-none">
                                             <small><i class="fas fa-rupee-sign text-warning me-1"></i><strong>Fees:</strong> ₹{{ number_format($course->fees_per_semester) }}/sem</small>
                                         </div>
                                         <div class="col-6">

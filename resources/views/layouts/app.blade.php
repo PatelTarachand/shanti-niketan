@@ -1308,6 +1308,7 @@
                             <li><a class="dropdown-item" href="{{ route('student.notices') }}">Notices</a></li>
                         </ul>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('gallery.index') }}">
                             <i class="fas fa-images me-2"></i>Gallery
@@ -1316,6 +1317,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('news.index') }}">
                             <i class="fas fa-newspaper me-2"></i>News & Events
+                        </a>
+                    </li>
+
+                     <li class="nav-item">
+                        <a class="nav-link" href="{{ route('notices.index') }}">
+                            <i class="fas fa-bell me-2"></i>Notices
                         </a>
                     </li>
 
@@ -1400,7 +1407,7 @@
                     </div>
 
                     <!-- Quick Links -->
-                    <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="col-lg-4 col-md-6 mb-4">
                         <div class="footer-section">
                             <h5 class="footer-heading">Quick Links</h5>
                             <ul class="footer-links">
@@ -1415,20 +1422,7 @@
                         </div>
                     </div>
 
-                    <!-- Academic Programs -->
-                    <div class="col-lg-2 col-md-6 mb-4">
-                        <div class="footer-section">
-                            <h5 class="footer-heading">Programs</h5>
-                            <ul class="footer-links">
-                                <li><a href="{{ route('courses.undergraduate') }}"><i class="fas fa-user-graduate me-2"></i>Undergraduate</a></li>
-                                <li><a href="{{ route('courses.postgraduate') }}"><i class="fas fa-graduation-cap me-2"></i>Postgraduate</a></li>
-                                <li><a href="{{ route('courses.diploma') }}"><i class="fas fa-certificate me-2"></i>Diploma</a></li>
-                                <li><a href="{{ route('admission.apply') }}"><i class="fas fa-user-plus me-2"></i>Apply Now</a></li>
-                                <li><a href="{{ route('sitemap.html') }}"><i class="fas fa-sitemap me-2"></i>Sitemap</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
+                  
                     <!-- Contact Information -->
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="footer-section">
