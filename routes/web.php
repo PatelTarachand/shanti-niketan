@@ -176,6 +176,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('contacts', App\Http\Controllers\Admin\ContactController::class)->except(['create', 'store', 'edit']);
         Route::patch('contacts/{contact}/status', [App\Http\Controllers\Admin\ContactController::class, 'updateStatus'])->name('contacts.update-status');
         Route::post('contacts/bulk-action', [App\Http\Controllers\Admin\ContactController::class, 'bulkAction'])->name('contacts.bulk-action');
+
+        // Site Settings management
+        Route::get('settings', [App\Http\Controllers\Admin\SiteSettingController::class, 'index'])->name('settings.index');
+        Route::put('settings', [App\Http\Controllers\Admin\SiteSettingController::class, 'update'])->name('settings.update');
     });
 });
 

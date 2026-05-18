@@ -276,6 +276,13 @@
                 </a>
             </li>
 
+            <li>
+                <a href="{{ route('admin.settings.index') }}" class="{{ request()->routeIs('admin.settings.*') ? 'active' : '' }}">
+                    <i class="fas fa-cog"></i>
+                    <span class="sidebar-text">Site Settings</span>
+                </a>
+            </li>
+
             <li class="d-none">
                 <a href="#" class="{{ request()->routeIs('admin.students.*') ? 'active' : '' }}">
                     <i class="fas fa-users"></i>

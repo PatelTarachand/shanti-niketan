@@ -1155,10 +1155,14 @@
                 <!-- Logo and College Name -->
                 <div class="col-lg-4 col-md-6">
                     <div class="d-flex align-items-center">
-                        <img src="{{ asset('snc.jpeg') }}" alt="Shantineketan College Logo" height="50" class="me-3">
+                        @if($siteSettings && $siteSettings->logo)
+                            <img src="{{ asset('storage/' . $siteSettings->logo) }}" alt="{{ $siteSettings->college_name_en }} Logo" height="50" class="me-3">
+                        @else
+                            <img src="{{ asset('snc.jpeg') }}" alt="Shantineketan College Logo" height="50" class="me-3">
+                        @endif
                         <div>
-                            <h5 class="mb-0 text-dark fw-bold">Shantineketan College</h5>
-                            <small class="text-dark hindi-text">शांतिनिकेतन कॉलेज</small>
+                            <h5 class="mb-0 text-dark fw-bold">{{ $siteSettings->college_name_en ?? 'Shantineketan College' }}</h5>
+                            <small class="text-dark hindi-text">{{ $siteSettings->college_name_hi ?? 'शांतिनिकेतन कॉलेज' }}</small>
                         </div>
                     </div>
                 </div>
@@ -1168,17 +1172,19 @@
                     <div class="contact-info">
                         <div class="mb-1">
                             <i class="fas fa-phone text-dark me-2"></i>
-                            <span class="text-dark fw-semibold">+91 94255 14719</span>
-                            <span class="text-dark mx-2">|</span>
-                            <span class="text-dark fw-semibold">0771-2243085</span>
+                            <span class="text-dark fw-semibold">{{ $siteSettings->phone_1 ?? '+91 94255 14719' }}</span>
+                            @if($siteSettings && $siteSettings->phone_2)
+                                <span class="text-dark mx-2">|</span>
+                                <span class="text-dark fw-semibold">{{ $siteSettings->phone_2 }}</span>
+                            @endif
                         </div>
                         <div>
                             <i class="fas fa-envelope text-dark me-2"></i>
-                            <span class="text-dark fw-semibold">shantiniketan2009@yahoo.co.in</span>
+                            <span class="text-dark fw-semibold">{{ $siteSettings->email ?? 'shantiniketan2009@yahoo.co.in' }}</span>
                         </div>
                         <div class="mt-1">
                             <i class="fas fa-map-marker-alt text-dark me-2"></i>
-                            <small class="text-dark">Changorbhatha, Raipur, Chhattisgarh</small>
+                            <small class="text-dark">{{ $siteSettings->address ?? 'Changorbhatha, Raipur, Chhattisgarh' }}</small>
                         </div>
                     </div>
                 </div>
@@ -1187,11 +1193,11 @@
                 <div class="col-lg-4 text-end">
                     <div class="d-flex align-items-center justify-content-end">
                         <div class="social-links me-3">
-                            <a href="#" class="text-dark me-2" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="text-dark me-2" title="Twitter"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="text-dark me-2" title="Instagram"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="text-dark me-2" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                            <a href="#" class="text-dark me-2" title="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="{{ $siteSettings->facebook_url ?? '#' }}" class="text-dark me-2" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="{{ $siteSettings->twitter_url ?? '#' }}" class="text-dark me-2" title="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="{{ $siteSettings->instagram_url ?? '#' }}" class="text-dark me-2" title="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="{{ $siteSettings->linkedin_url ?? '#' }}" class="text-dark me-2" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="{{ $siteSettings->youtube_url ?? '#' }}" class="text-dark me-2" title="YouTube"><i class="fab fa-youtube"></i></a>
                         </div>
                         <div class="quick-actions">
                             <a href="{{ route('admission.apply') }}" class="btn btn-dark btn-sm me-2">
@@ -1214,10 +1220,20 @@
                 </span>
                 <div class="ticker-content">
                     <marquee behavior="scroll" direction="left" scrollamount="3">
-                        @if(isset($notices) && $notices->count() > 0)
-                            @foreach($notices as $notice)
+                        @if(isset($headerNotices) && $headerNotices->count() > 0)
+                            @foreach($headerNotices as $notice)
                                 <span class="me-5">
-                                    <i class="fas fa-{{ $notice->category === 'examination' ? 'clipboard-list' : ($notice->category === 'admission' ? 'user-plus' : ($notice->category === 'events' ? 'calendar-alt' : 'bell')) }} text-warning me-2"></i>
+                                    @php
+                                        $icon = match($notice->category) {
+                                            'examination' => 'clipboard-list',
+                                            'admission' => 'user-plus',
+                                            'events' => 'calendar-alt',
+                                            'placement' => 'briefcase',
+                                            'academic' => 'book',
+                                            default => 'bell',
+                                        };
+                                    @endphp
+                                    <i class="fas fa-{{ $icon }} text-warning me-2"></i>
                                     {{ $notice->title }}
                                 </span>
                             @endforeach
@@ -1377,10 +1393,14 @@
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="footer-section">
                             <div class="footer-logo mb-3">
-                                <img src="{{ asset('snc.jpeg') }}" alt="Shantineketan College Logo" height="50" class="me-3">
+                                @if($siteSettings && $siteSettings->logo)
+                                    <img src="{{ asset('storage/' . $siteSettings->logo) }}" alt="{{ $siteSettings->college_name_en }} Logo" height="50" class="me-3">
+                                @else
+                                    <img src="{{ asset('snc.jpeg') }}" alt="Shantineketan College Logo" height="50" class="me-3">
+                                @endif
                                 <div>
-                                    <h4 class="footer-title mb-1">Shantineketan College</h4>
-                                    <p class="footer-subtitle mb-0">शांतिनिकेतन कॉलेज</p>
+                                    <h4 class="footer-title mb-1">{{ $siteSettings->college_name_en ?? 'Shantineketan College' }}</h4>
+                                    <p class="footer-subtitle mb-0">{{ $siteSettings->college_name_hi ?? 'शांतिनिकेतन कॉलेज' }}</p>
                                 </div>
                             </div>
                             <p class="footer-description">
@@ -1434,9 +1454,7 @@
                                     </div>
                                     <div class="contact-details">
                                         <h6>Campus Address</h6>
-                                        <p>Ring Road No.1, Near Pani Tanki<br>
-                                        Changorbhatha, Raipur<br>
-                                        Chhattisgarh - 492001, India</p>
+                                        <p>{!! nl2br(e($siteSettings->address ?? "Ring Road No.1, Near Pani Tanki\nChangorbhatha, Raipur\nChhattisgarh - 492001, India")) !!}</p>
                                     </div>
                                 </div>
 
@@ -1447,8 +1465,10 @@
                                     <div class="contact-details">
                                         <h6>Phone Numbers</h6>
                                         <p>
-                                            <a href="tel:+919425514719">+91 94255 14719</a><br>
-                                            <a href="tel:07712243085">0771-2243085</a>
+                                            <a href="tel:{{ str_replace(' ', '', $siteSettings->phone_1 ?? '+919425514719') }}">{{ $siteSettings->phone_1 ?? '+91 94255 14719' }}</a><br>
+                                            @if($siteSettings && $siteSettings->phone_2)
+                                                <a href="tel:{{ str_replace(' ', '', $siteSettings->phone_2) }}">{{ $siteSettings->phone_2 }}</a>
+                                            @endif
                                         </p>
                                     </div>
                                 </div>
@@ -1459,7 +1479,7 @@
                                     </div>
                                     <div class="contact-details">
                                         <h6>Email Address</h6>
-                                        <p><a href="mailto:shantiniketan2009@yahoo.co.in">shantiniketan2009@yahoo.co.in</a></p>
+                                        <p><a href="mailto:{{ $siteSettings->email ?? 'shantiniketan2009@yahoo.co.in' }}">{{ $siteSettings->email ?? 'shantiniketan2009@yahoo.co.in' }}</a></p>
                                     </div>
                                 </div>
 
@@ -1487,22 +1507,22 @@
                         <div class="social-section">
                             <h6 class="social-title">Follow Us</h6>
                             <div class="social-links">
-                                <a href="#" class="social-link facebook" title="Facebook">
+                                <a href="{{ $siteSettings->facebook_url ?? '#' }}" class="social-link facebook" title="Facebook">
                                     <i class="fab fa-facebook-f"></i>
                                 </a>
-                                <a href="#" class="social-link twitter" title="Twitter">
+                                <a href="{{ $siteSettings->twitter_url ?? '#' }}" class="social-link twitter" title="Twitter">
                                     <i class="fab fa-twitter"></i>
                                 </a>
-                                <a href="#" class="social-link instagram" title="Instagram">
+                                <a href="{{ $siteSettings->instagram_url ?? '#' }}" class="social-link instagram" title="Instagram">
                                     <i class="fab fa-instagram"></i>
                                 </a>
-                                <a href="#" class="social-link linkedin" title="LinkedIn">
+                                <a href="{{ $siteSettings->linkedin_url ?? '#' }}" class="social-link linkedin" title="LinkedIn">
                                     <i class="fab fa-linkedin"></i>
                                 </a>
-                                <a href="#" class="social-link youtube" title="YouTube">
+                                <a href="{{ $siteSettings->youtube_url ?? '#' }}" class="social-link youtube" title="YouTube">
                                     <i class="fab fa-youtube"></i>
                                 </a>
-                                <a href="https://wa.me/919425514719" class="social-link whatsapp" title="WhatsApp" target="_blank">
+                                <a href="https://wa.me/{{ str_replace(['+', ' '], '', $siteSettings->phone_1 ?? '919425514719') }}" class="social-link whatsapp" title="WhatsApp" target="_blank">
                                     <i class="fab fa-whatsapp"></i>
                                 </a>
                             </div>
@@ -1533,7 +1553,7 @@
                     <div class="col-lg-6 mb-2 mb-lg-0">
                         <div class="copyright">
                             <p class="mb-0">
-                                &copy; {{ date('Y') }} <strong>Shantineketan College</strong>. All rights reserved.
+                                &copy; {{ date('Y') }} <strong>{{ $siteSettings->college_name_en ?? 'Shantineketan College' }}</strong>. All rights reserved.
                             </p>
                         </div>
                     </div>
