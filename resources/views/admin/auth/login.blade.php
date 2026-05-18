@@ -142,7 +142,7 @@
                         <div class="d-flex justify-content-center gap-3">
                             <div class="text-center">
                                 <i class="fas fa-users fa-2x mb-2"></i>
-                                <div class="small">2500+ Students</div>
+                                <div class="small">4500+ Students</div>
                             </div>
                             <div class="text-center">
                                 <i class="fas fa-chalkboard-teacher fa-2x mb-2"></i>

@@ -1417,7 +1417,7 @@
                                     </div>
                                     <div class="col-6">
                                         <div class="stat-item">
-                                            <h5 class="stat-number">2500+</h5>
+                                            <h5 class="stat-number">4500+</h5>
                                             <small class="stat-label">Students</small>
                                         </div>
                                     </div>

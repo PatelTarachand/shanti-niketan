@@ -91,16 +91,16 @@
                                         </p>
                                         <p class="contact-page-item">
                                             <i class="fas fa-book text-info me-2"></i>
-                                            <strong>Admin:</strong> +91 89828 80267
+                                            <strong>Admin:</strong> +91 93403 69930
                                         </p>
-                                        <p class="contact-page-item">
+                                        <!-- <p class="contact-page-item">
                                             <i class="fas fa-book-open text-purple me-2"></i>
                                             <strong>HOD CS:</strong> +91 78281 68418
                                         </p>
                                         <p class="contact-page-item">
                                             <i class="fas fa-bed text-danger me-2"></i>
                                             <strong>Office:</strong> +91 94255 14719
-                                        </p>
+                                        </p> -->
                                     </div>
                                 </div>
                             </div>

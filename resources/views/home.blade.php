@@ -181,7 +181,7 @@
             </div>
             <div class="col-lg-3 col-md-6 mb-4">
                 <div class="stat-item">
-                    <span class="stat-number">2500+</span>
+                    <span class="stat-number">4500+</span>
                     <h5>Students Graduated</h5>
                 </div>
             </div>
